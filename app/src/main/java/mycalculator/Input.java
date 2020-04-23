@@ -1,4 +1,4 @@
-package com.myexample.mycalculator;
+package mycalculator;
 
 import android.annotation.SuppressLint;
 

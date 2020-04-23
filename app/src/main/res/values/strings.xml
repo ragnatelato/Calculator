@@ -1,4 +1,5 @@
 <resources>
     <string name="operations">operations</string>
+    <string name="calculator">calculator</string>
 
 </resources>

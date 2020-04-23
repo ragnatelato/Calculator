@@ -1,4 +1,4 @@
-package com.myexample.mycalculator;
+package mycalculator;
 
 @FunctionalInterface
 public interface CalculatorInterface {

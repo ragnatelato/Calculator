@@ -1,4 +1,4 @@
-package com.myexample.mycalculator;
+package mycalculator;
 
 /**
  * select operator from list

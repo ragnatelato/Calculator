@@ -1,4 +1,4 @@
-package com.myexample.mycalculator;
+package mycalculator;
 
 public class Calculator extends Input implements CalculatorInterface {
     public void calculate() {

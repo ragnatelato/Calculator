@@ -1,8 +1,8 @@
 package com.example.calculator;
 
-import com.myexample.mycalculator.Operator;
-
 import org.junit.Test;
+
+import mycalculator.Operator;
 
 import static junit.framework.TestCase.assertEquals;
 
