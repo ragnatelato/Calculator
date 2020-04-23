@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <TextView
+            android:id="@+id/OperationArea"
+            android:layout_width="412dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="453dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/operations"
+            android:textAlignment="gravity"
+            android:textSize="30sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Author"
+            tools:visibility="visible" />
+
+    <EditText
+            android:id="@+id/Author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="inserisci la data"
+            android:inputType="date"
+            android:text="DanyJokerFace"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#3F82B5"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="DanyJokerFace" />
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="431dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OperationArea">
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            <Button
+                    android:id="@+id/button13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            <Button
+                    android:id="@+id/button30"
+                    android:layout_width="59dp"
+                    android:layout_height="97dp"
+                    android:text="="
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button28"
+                    android:layout_width="87dp"
+                    android:layout_height="69dp"
+                    android:text="2"
+                    android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            <Button
+                    android:id="@+id/button15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button27"
+                    android:layout_width="109dp"
+                    android:layout_height="44dp"
+                    android:text="+"
+                    android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <Button
+                    android:id="@+id/button22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button26"
+                    android:layout_width="94dp"
+                    android:layout_height="71dp"
+                    android:text="0"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button31"
+                    android:layout_width="109dp"
+                    android:layout_height="44dp"
+                    android:text="-"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textSize="14sp" />
+
+            <Button
+                    android:id="@+id/button25"
+                    android:layout_width="87dp"
+                    android:layout_height="70dp"
+                    android:text="1"
+                    android:textSize="14sp" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
