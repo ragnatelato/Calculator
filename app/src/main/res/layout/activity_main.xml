@@ -10,20 +10,18 @@
 
     <EditText
             android:id="@+id/author"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
+            android:layout_width="230dp"
+            android:layout_height="73dp"
             android:ems="10"
-            android:hint="inserisci la data"
+            android:hint="DJF"
             android:inputType="date"
-            android:text="DanyJokerFace"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#146DD1"
+            android:textColorHint="#146DD1"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="Autofill" />
 
     <TextView
             android:id="@+id/operations"
@@ -236,6 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClickSum"
                 android:text="+"
                 android:textAlignment="center"
                 android:textSize="27sp"
@@ -286,6 +285,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="#00E5FF"
                 android:text="="
                 android:textAlignment="center"
                 android:textSize="27sp"
