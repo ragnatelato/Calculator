@@ -7,7 +7,6 @@
         android:layout_height="match_parent"
         tools:context="com.example.calculator.MainActivity">
 
-
     <EditText
             android:id="@+id/author"
             android:layout_width="230dp"
@@ -62,12 +61,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:icon="@android:drawable/ic_input_delete"
+                android:icon="@mipmap/ic_input_delete"
                 android:text=""
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
-        <!--TODO -->
+        <!--TODO  insert ic_cancel_icon-->
 
         <Button
                 android:id="@+id/button_remainder"
@@ -88,6 +87,7 @@
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -138,6 +138,7 @@
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -188,6 +189,7 @@
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -234,11 +236,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onClickSum"
                 android:text="+"
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -290,23 +292,7 @@
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
+
     </LinearLayout>
-
-    <!--    <com.google.android.gms.ads.AdView-->
-    <!--            android:id="@+id/adView"-->
-    <!--            android:layout_width="0dp"-->
-    <!--            android:layout_height="0dp"-->
-    <!--            android:layout_alignParentBottom="true"-->
-    <!--            android:layout_centerHorizontal="true"-->
-    <!--            app:adSize="BANNER"-->
-    <!--            app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
-    <!--            tools:visibility="gone" />-->
-
-    <!--TODO -->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

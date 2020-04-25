@@ -31,4 +31,5 @@ public class OperatorTest {
     public void subtraction() {
         assertEquals(firstValue - secondValue, operator.subtraction(firstValue, secondValue));
     }
+
 }

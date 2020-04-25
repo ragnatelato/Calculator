@@ -1,5 +1,4 @@
 <resources>
     <string name="operations">operations</string>
-    <string name="calculator">calculator</string>
-
+    <string name="app_name">Calculator</string>
 </resources>
