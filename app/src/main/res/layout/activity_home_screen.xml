@@ -14,6 +14,7 @@
             android:ems="10"
             android:hint="DJF"
             android:inputType="date"
+            android:onClick="onClickAuthor"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColorHint="#146DD1"
