@@ -1,7 +1,6 @@
 package com.danyjokerface.calculator;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,11 +15,6 @@ public class FirstQuizEasterEgg extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-//        if (getIntent() != null) {
-//            Log.d("", "la variabile benvenuto vale: " + getIntent().getExtras().get("Benvenuto"));
-//        }
-
     }
 
 }

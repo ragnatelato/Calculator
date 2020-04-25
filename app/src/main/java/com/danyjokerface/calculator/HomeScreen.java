@@ -1,9 +1,11 @@
 package com.danyjokerface.calculator;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,11 +31,24 @@ public class HomeScreen extends AppCompatActivity {
 //
 //    }
 
+    @SuppressLint("SetTextI18n")
     public void onClickAuthor(View view) {
         //TODO mettere condizione se si inserisce la mia data di nascita
-        Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
-        //intent.putExtra("Benvenuto", "Benvenuto nella prima activity di test!");
-        startActivity(intent);
+//        Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+//        //intent.putExtra("Benvenuto", "Benvenuto nella prima activity di test!");
+//        startActivity(intent);
+        int count = 0;
+
+        count++;
+        TextView text = findViewById(R.id.author);
+        text.setText("No.of Clicks " + count);
+
+        if (count == 5) {
+            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+            //intent.putExtra("Benvenuto", "Benvenuto nella prima activity di test!");
+            startActivity(intent);
+        }
+
     }
 
 }
