@@ -21,7 +21,7 @@ public class HomeScreen extends AppCompatActivity {
 //        author.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                //TODO mettere condizione se si inserisce la mia data di nascita
+//                // mettere condizione se si inserisce la mia data di nascita
 //                Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
 //                startActivity(intent);
 //            }
@@ -32,6 +32,7 @@ public class HomeScreen extends AppCompatActivity {
     public void onClickAuthor(View view) {
         //TODO mettere condizione se si inserisce la mia data di nascita
         Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+        //intent.putExtra("Benvenuto", "Benvenuto nella prima activity di test!");
         startActivity(intent);
     }
 
