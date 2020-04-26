@@ -9,9 +9,9 @@
 
     <TextView
             android:id="@+id/author"
-            android:layout_width="230dp"
+            android:layout_width="0dp"
             android:layout_height="73dp"
-            android:ems="10"
+            android:layout_marginEnd="10dp"
             android:gravity="center_vertical|center_horizontal|end"
             android:hint="DJF"
             android:onClick="onClickAuthor"
@@ -19,8 +19,8 @@
             android:textColorHint="#146DD1"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Autofill" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
             android:id="@+id/operations"
@@ -40,7 +40,6 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:orientation="horizontal"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/operations">
@@ -56,17 +55,14 @@
                 tools:ignore="ButtonStyle" />
 
         <Button
-
                 android:id="@+id/button_ic_input_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:icon="@mipmap/ic_input_delete"
-                android:text=""
+                android:text="@string/ic_input_delete"
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
-        <!--TODO  insert ic_cancel_icon-->
 
         <Button
                 android:id="@+id/button_remainder"

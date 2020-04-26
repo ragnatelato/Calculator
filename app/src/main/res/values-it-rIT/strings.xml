@@ -2,4 +2,5 @@
 <resources>
     <string name="operations">operazioni</string>
     <string name="app_name">Calcolatrice</string>
+    <string name="ic_input_delete">Can</string>
 </resources>
