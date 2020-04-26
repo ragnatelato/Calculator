@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeScreen extends AppCompatActivity {
-    private static int count = 0;
+    private static int count = 6;
 
 
     @Override
