@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".HomeScreen">
 
+
     <TextView
             android:id="@+id/author"
             android:layout_width="0dp"
@@ -18,6 +19,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColorHint="#146DD1"
             android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/operations"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="136dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/operations"
+            android:onClick="onClickOperations"
+            android:text="operations"
             android:textAlignment="center"
             android:textSize="30sp"
             android:visibility="invisible"
@@ -49,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClickReset"
                 android:text="C"
                 android:textAlignment="center"
                 android:textSize="27sp"
@@ -253,6 +257,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClickPosNeg"
                 android:text="+/-"
                 android:textAlignment="center"
                 android:textSize="27sp"
@@ -263,6 +268,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClickZero"
                 android:text="0"
                 android:textAlignment="center"
                 android:textSize="27sp"

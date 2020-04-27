@@ -1,5 +1,4 @@
 <resources>
-    <string name="operations">operations</string>
     <string name="app_name">Calculator</string>
     <string name="ic_input_delete">Del</string>
 </resources>

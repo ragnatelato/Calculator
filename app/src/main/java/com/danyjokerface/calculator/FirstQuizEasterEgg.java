@@ -16,5 +16,5 @@ public class FirstQuizEasterEgg extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
-
+    //TODO mettere condizione se si inserisce la mia data di nascita
 }
