@@ -38,6 +38,8 @@ public class HomeScreen extends AppCompatActivity {
 
 
     public void onClickReset(View view) {
+        TextView textView = findViewById(R.id.operations);
+        textView.append("");
         value = 0.0;
     }
 
@@ -46,7 +48,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
     public void onClickPosNeg(View view) {
-        TextView textView = findViewById(R.id.author);
+        TextView textView = findViewById(R.id.operations);
         if (textView.toString().equals("")) {
             textView.append("-");
             //value.doubleValue("-");
@@ -58,7 +60,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickZero(View view) {
-        TextView textView = findViewById(R.id.author);
+        TextView textView = findViewById(R.id.operations);
         textView.append("0");
     }
 
