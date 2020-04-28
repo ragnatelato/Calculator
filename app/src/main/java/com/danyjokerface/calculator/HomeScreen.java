@@ -37,6 +37,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
         textView.append(number_to_insert.toString());
+        value=number_to_insert.doubleValue();
         //todo update value
     }
 
@@ -99,7 +100,9 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSum(View view) {
-        value = previousValue * value;
+       //limit insert only one + before insert another number
+        textView.append("+");
+        //value = previousValue + value;
     }
 
     public void onClickEqual(View view) {
