@@ -3,7 +3,6 @@ package com.danyjokerface.calculator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings("FieldCanBeLocal")  //todo remove
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
     private static Double value = 0.0;
@@ -36,29 +35,6 @@ public class HomeScreen extends AppCompatActivity {
 
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
         textView.append(number_to_insert.toString());
-        //value = Double.parseDouble(textView);
-        Log.d("result", "The value is: " + value);
-    }
-
-    public void onClickPosNeg(View view) {
-//        if (textView.toString().equals("")) {
-//            textView.append("-");
-//            //value.doubleValue("-");
-//
-//        } else {
-//            textView.clearComposingText();
-//        }
-
-    }
-
-    public void onClickReset(View view) {
-//        textView.append("");
-//        value = 0.0;
-//        Log.d("result", "The value is: " + value);
-    }
-
-    public void onClickDelete(View view) {
-        // inserire l'eventuale logica
     }
 
     public void onClickNine(View view) {
@@ -111,13 +87,28 @@ public class HomeScreen extends AppCompatActivity {
         // inserire l'eventuale logica
     }
 
+    public void onClickMultiplication(View view) {
+        // inserire l'eventuale logica
+    }
+
+    public void onClickSubtraction(View view) {
+        // inserire l'eventuale logica
+    }
+
+    public void onClickSum(View view) {
+        // inserire l'eventuale logica
+    }
+
+    public void onClickEqual(View view) {
+        // inserire l'eventuale logica
+    }
+
     // ------------------------Functional---------------------------------------------------------------
 
-    //TODO customizzare toolbar
+    //TODO customize toolbar
 
     @SuppressLint("MissingPermission")
     public void onClickAuthor(View view) {
-
         //TODO il toast è troppo lento a comparire ed aggiornarsi
         count++;
         Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
@@ -131,6 +122,28 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickOperations(View view) {
         // inserire l'eventuale logica
+    }
+
+    public void onClickReset(View view) {
+        textView.setText("");
+    }
+
+    public void onClickDelete(View view) {
+//        textView.setText(textView.length());
+//        textView.toString().substring(0, textView.length() - 1);
+    }
+
+    public void onClickPosNeg(View view) {
+//        if (textView.toString().equals("")) {
+//            textView.append("-");
+//            //value =
+//        } else {
+//            textView.toString().substring(textView.lenght());
+//        }
+    }
+
+    public void onClickComma(View view) {
+
     }
 
 }
