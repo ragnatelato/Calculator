@@ -8,7 +8,7 @@
             android:icon="@mipmap/calculator_icon"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/calculator_icon_round"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppThemeDayNight"
             tools:ignore="AllowBackup">
         <receiver android:name=".CalculatorWidget">
             <intent-filter>
@@ -24,7 +24,7 @@
         <activity
                 android:name=".HomeScreen"
                 android:label="@string/app_name"
-                android:theme="@style/AppTheme">
+                android:theme="@style/AppThemeDayNight">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

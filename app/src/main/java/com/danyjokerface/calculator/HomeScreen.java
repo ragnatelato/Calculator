@@ -103,7 +103,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickEqual(View view) {
-        textView.setText(value.toString());
+        textView.setText(value.toString()); //todo
     }
 
     // ------------------------Functional---------------------------------------------------------------
