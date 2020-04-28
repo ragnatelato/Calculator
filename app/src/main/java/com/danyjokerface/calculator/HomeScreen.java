@@ -1,25 +1,35 @@
 package com.danyjokerface.calculator;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
     private static Double value = 0.0;
     private TextView textView;
+    private TextView author;
+    private Animation fade_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         textView = findViewById(R.id.operations);
+        author = findViewById(R.id.author);
+        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        author.startAnimation(fade_in);
     }
 
     // ------------------------Insert Number--------------------------------------------------------
@@ -107,14 +117,15 @@ public class HomeScreen extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     public void onClickAuthor(View view) {
+
         //TODO il toast è troppo lento a comparire ed aggiornarsi
-//        count++;
-//        Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
-//        if (count == 5) {
-//            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
-//            startActivity(intent);
-//            count = 0;
-//        }
+        count++;
+        Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
+        if (count == 5) {
+            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+            startActivity(intent);
+            count = 0;
+        }
 
     }
 
