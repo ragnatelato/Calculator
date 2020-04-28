@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Calculator</string>
     <string name="ic_input_delete">Del</string>
+    <string name="click_me">Click to open Calculator</string>
 </resources>

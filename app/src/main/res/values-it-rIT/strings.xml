@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Calcolatrice</string>
     <string name="ic_input_delete">Can</string>
+    <string name="click_me">Click per aprire la Calcolatrice</string>
 </resources>
