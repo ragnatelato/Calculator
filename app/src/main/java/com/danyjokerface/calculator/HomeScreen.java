@@ -13,12 +13,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 @SuppressWarnings("FieldCanBeLocal")  //todo remove
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
-    private static Double value = 0.0;  //todo update
+    private static Double value = null;  //todo update
     private static Double remainder = 0.0;
     private static Double previousValue; //todo update
+    private static String operator;
+    private static Double result = null;
     private TextView textView;
     private TextView author;
     private Animation fade_in;
@@ -33,12 +39,39 @@ public class HomeScreen extends AppCompatActivity {
         author.startAnimation(fade_in);
     }
 
-    // ------------------------Insert Number--------------------------------------------------------
+    // ------------------------Insert Number------------------------------------------------------------------
 
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
-        textView.append(number_to_insert.toString());
-        value=number_to_insert.doubleValue();
-        //todo update value
+        if (result != null) {
+            textView.setText("");
+        }
+        if (value == null) {
+            textView.append(number_to_insert.toString());
+            value = number_to_insert.doubleValue();
+        } else {
+            textView.append(number_to_insert.toString());
+            previousValue = value;
+            value = number_to_insert.doubleValue();
+
+            switch (operator) {
+                case ("/"):
+                    result = previousValue / value;
+                    break;
+                case ("*"):
+                    result = previousValue * value;
+                    break;
+                case ("-"):
+                    result = previousValue - value;
+                    break;
+                case ("+"):
+                    result = previousValue + value;
+                    break;
+
+                //todo implement remainder and more number consecutive
+
+            }
+        }
+
     }
 
     public void onClickNine(View view) {
@@ -81,35 +114,47 @@ public class HomeScreen extends AppCompatActivity {
         insertNumberOnTextView(0);
     }
 
-    // ------------------------Operators------------------------------------------------------------
+    // ------------------------Operators----------------------------------------------------------------------
 
     public void onClickRemainder(View view) {
-        remainder = previousValue % value;
+        //limit insert only one % before insert another number
+        textView.append("%");
+        operator = "%";
+        //todo
     }
 
     public void onClickDivision(View view) {
-        value = previousValue / value;
-    }
+        //limit insert only one / before insert another number
+        textView.append("/");
+        operator = "/";
+    } //todo
 
     public void onClickMultiplication(View view) {
-        value = previousValue * value;
-    }
+        //limit insert only one * before insert another number
+        textView.append("*");
+        operator = "*";
+    } //todo
 
     public void onClickSubtraction(View view) {
-        value = previousValue - value;
-    }
+        //limit insert only one - before insert another number
+        textView.append("-");
+        operator = "-";
+    } //todo
 
     public void onClickSum(View view) {
-       //limit insert only one + before insert another number
+        //limit insert only one + before insert another number
         textView.append("+");
-        //value = previousValue + value;
+        operator = "+";
+        //todo
     }
 
     public void onClickEqual(View view) {
-        textView.setText(value.toString()); //todo
+        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
+        textView.setText(numberOfDecimal.format(result));
     }
 
-    // ------------------------Functional---------------------------------------------------------------
+    // ------------------------Functional---------------------------------------------------------------------
 
     //TODO customize toolbar
 
@@ -137,7 +182,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickDelete(View view) {
 //        textView.setText(textView.length());
-//        textView.toString().substring(0, textView.length() - 1);
+//        textView.toString().substring(0, textView.length() - 1); //todo
     }
 
     public void onClickPosNeg(View view) {
@@ -145,7 +190,7 @@ public class HomeScreen extends AppCompatActivity {
 //            textView.append("-");
 //            //value =
 //        } else {
-//            textView.toString().substring(textView.lenght());
+//            textView.toString().substring(textView.lenght()); //todo
 //        }
     }
 
