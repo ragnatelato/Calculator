@@ -61,6 +61,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/ic_input_delete"
+                android:onClick="onClickDelete"
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
@@ -71,6 +72,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="%"
+                android:onClick="onClickRemainder"
                 android:textAlignment="center"
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
@@ -80,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClickDivision"
                 android:text="/"
                 android:textAlignment="center"
                 android:textSize="27sp"
