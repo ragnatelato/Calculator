@@ -16,7 +16,9 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("FieldCanBeLocal")  //todo remove
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
-    private static Double value = 0.0;
+    private static Double value = 0.0;  //todo update
+    private static Double remainder = 0.0;
+    private static Double previousValue; //todo update
     private TextView textView;
     private TextView author;
     private Animation fade_in;
@@ -35,6 +37,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
         textView.append(number_to_insert.toString());
+        //todo update value
     }
 
     public void onClickNine(View view) {
@@ -80,27 +83,27 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Operators------------------------------------------------------------
 
     public void onClickRemainder(View view) {
-        // inserire l'eventuale logica
+        remainder = previousValue % value;
     }
 
     public void onClickDivision(View view) {
-        // inserire l'eventuale logica
+        value = previousValue / value;
     }
 
     public void onClickMultiplication(View view) {
-        // inserire l'eventuale logica
+        value = previousValue * value;
     }
 
     public void onClickSubtraction(View view) {
-        // inserire l'eventuale logica
+        value = previousValue - value;
     }
 
     public void onClickSum(View view) {
-        // inserire l'eventuale logica
+        value = previousValue * value;
     }
 
     public void onClickEqual(View view) {
-        // inserire l'eventuale logica
+        textView.setText(value.toString());
     }
 
     // ------------------------Functional---------------------------------------------------------------
@@ -109,7 +112,7 @@ public class HomeScreen extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     public void onClickAuthor(View view) {
-        //TODO il toast è troppo lento a comparire ed aggiornarsi
+        //TODO toast too slow / change color toast day night theme
         count++;
         Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
         if (count == 5) {
@@ -121,11 +124,12 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickOperations(View view) {
-        // inserire l'eventuale logica
+        // insert logic
     }
 
     public void onClickReset(View view) {
         textView.setText("");
+        //todo update value
     }
 
     public void onClickDelete(View view) {
@@ -143,7 +147,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickComma(View view) {
-
+        // insert logic
     }
 
 }
