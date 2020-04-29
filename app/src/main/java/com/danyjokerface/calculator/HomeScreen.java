@@ -126,34 +126,35 @@ public class HomeScreen extends AppCompatActivity {
             String formatRemainder = getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
             textView.setText(formatRemainder);
             remainder = null;
+            //todo finish
         }
     }
 
     public void onClickDivision(View view) {
-        if (operator == null) {
-            String textViewString = textView.getText().toString();
-            textView.append("/");
-            operator = "/";
-            value = Double.parseDouble(textViewString);
-        }
+//        if (operator == null) {
+//            String textViewString = textView.getText().toString();
+//            textView.append("/");
+//            operator = "/";
+//            value = Double.parseDouble(textViewString);
+//        }
     }
 
     public void onClickMultiplication(View view) {
-        if (operator == null) {
-            String textViewString = textView.getText().toString();
-            textView.append("*");
-            operator = "*";
-            value = Double.parseDouble(textViewString);
-        }
+//        if (operator == null) {
+//            String textViewString = textView.getText().toString();
+//            textView.append("*");
+//            operator = "*";
+//            value = Double.parseDouble(textViewString);
+//        }
     }
 
     public void onClickSubtraction(View view) {
-        if (operator == null) {
-            String textViewString = textView.getText().toString();
-            textView.append("-");
-            operator = "-";
-            value = Double.parseDouble(textViewString);
-        }
+//        if (operator == null) {
+//            String textViewString = textView.getText().toString();
+//            textView.append("-");
+//            operator = "-";
+//            value = Double.parseDouble(textViewString);
+//        }
     }
 
     public void onClickSum(View view) {
@@ -234,6 +235,9 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickComma(View view) {
+//        textView.append(",");
+//        String textViewString = textView.getText().toString().replace(",",".");
+//        value = Double.parseDouble(textViewString);
         // insert logic
     }
 
