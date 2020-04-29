@@ -164,7 +164,7 @@ public class HomeScreen extends AppCompatActivity {
             operator = "+";
         } else if (previousValue != null && !equalPass) {
             // todo seconda operatore di fila problemi ed
-            // operatore dopo uguale problemi
+            // operatore dopo uguale problemi, calcoli lunghi errore
             String TempResultView = numberOfDecimal.format(resultTemp) + "+";
             textView.setText(TempResultView);
             operator = "+";
@@ -207,12 +207,21 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickReset(View view) {
         textView.setText("");
-        //todo update value
+        previousValue = null;
+        value = null;
+        remainder = null;
+        operator = null;
+        resultTemp = null;
+        result = null;
+        equalPass = false;
     }
 
     public void onClickDelete(View view) {
-//        textView.setText(textView.length());
-//        textView.toString().substring(0, textView.length() - 1); //todo
+        if (!textView.getText().toString().equals("")) {
+            String textViewString = textView.getText().toString();
+            textView.setText(textViewString.substring(0, textViewString.length() - 1));
+        }
+
     }
 
     public void onClickPosNeg(View view) {
