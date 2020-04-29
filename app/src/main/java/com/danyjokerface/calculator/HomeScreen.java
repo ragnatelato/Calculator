@@ -51,30 +51,28 @@ public class HomeScreen extends AppCompatActivity {
             result = null;
         }
 
-        if (operator != null) {
-            value = number_to_insert.doubleValue();
-            switch (operator) {
-                case ("/"):
-                    resultTemp = previousValue / value;
-                    remainder = previousValue % value;
-                    operator = null;
-                    break;
-                case ("*"):
-                    resultTemp = previousValue * value;
-                    operator = null;
-                    break;
-                case ("-"):
-                    resultTemp = previousValue - value;
-                    operator = null;
-                    break;
-                case ("+"):
-                    resultTemp = previousValue + value;
-                    operator = null;
-                    break;
-                //todo implement remainder and more number consecutive
-            }
-
-        }
+//        if (operator != null) {
+//            value = number_to_insert.doubleValue();
+//            switch (operator) {
+//                case ("/"):
+//                    resultTemp = previousValue / value;
+//                    remainder = previousValue % value;
+//                    operator = null;
+//                    break;
+//                case ("*"):
+//                    resultTemp = previousValue * value;
+//                    operator = null;
+//                    break;
+//                case ("-"):
+//                    resultTemp = previousValue - value;
+//                    operator = null;
+//                    break;
+//                case ("+"):
+//                    resultTemp = previousValue + value;
+//                    operator = null;
+//                    break;
+//                //todo implement remainder and more number consecutive
+//            }
 
         textView.append(number_to_insert.toString());
     }
@@ -121,6 +119,35 @@ public class HomeScreen extends AppCompatActivity {
 
     // ------------------------Operators----------------------------------------------------------------------
 
+    public void operations() {
+
+        if (operator != null) {
+            String textViewString = textView.getText().toString().substring(operator.length()); //todo fare
+            // dall'operatore in poi
+            value = Double.parseDouble(textViewString);
+            switch (operator) {
+                case ("/"):
+                    resultTemp = previousValue / value;
+                    remainder = previousValue % value;
+                    operator = null;
+                    break;
+                case ("*"):
+                    resultTemp = previousValue * value;
+                    operator = null;
+                    break;
+                case ("-"):
+                    resultTemp = previousValue - value;
+                    operator = null;
+                    break;
+                case ("+"):
+                    resultTemp = previousValue + value;
+                    operator = null;
+                    break;
+                //todo implement remainder and more number consecutive
+            }
+        }
+    }
+
     public void onClickRemainder(View view) {
         if (operator == null) {
             String formatRemainder = getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
@@ -164,10 +191,11 @@ public class HomeScreen extends AppCompatActivity {
             textView.append("+");
             operator = "+";
         } else if (previousValue != null && !equalPass) {
-            // todo seconda operatore di fila problemi ed
-            // operatore dopo uguale problemi, calcoli lunghi errore
+            // todo operatore dopo uguale problemi, calcoli lunghi errore
+            operations();
             String TempResultView = numberOfDecimal.format(resultTemp) + "+";
             textView.setText(TempResultView);
+            previousValue = resultTemp;
             operator = "+";
         }
 
