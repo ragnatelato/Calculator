@@ -20,12 +20,13 @@ import java.util.Locale;
 
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
-    private static Double previousValue;
+    private static Double previousValue = null;
     private static Double value = null;
-    private static Double remainder = 0.0;
+    private static Double remainder = null;
     private static String operator = null;
     private static Double resultTemp = null;
     private static Double result = null;
+    private static Boolean equalPass = false;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
     private TextView textView;
@@ -47,11 +48,10 @@ public class HomeScreen extends AppCompatActivity {
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
         if (result != null) {
             textView.setText("");
+            result = null;
         }
 
         if (operator != null) {
-            //todo update
-            previousValue = value;
             value = number_to_insert.doubleValue();
             switch (operator) {
                 case ("/"):
@@ -157,28 +157,31 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSum(View view) {
-        String textViewString = textView.getText().toString();
-        if (operator == null && resultTemp == null) {
+        if (operator == null && previousValue == null && !equalPass) {
+            String textViewString = textView.getText().toString();
+            previousValue = Double.parseDouble(textViewString);
             textView.append("+");
             operator = "+";
-            value = Double.parseDouble(textViewString);
-        } else {
-            String textViewCleanOperator = textViewString.substring(textViewString.indexOf("+") + 1);
-            value = Double.parseDouble(textViewCleanOperator);
-            String TempResultView = numberOfDecimal.format(resultTemp) + " + " + numberOfDecimal.format(value);
-            textView.setText(numberOfDecimal.format(TempResultView));
+        } else if (previousValue != null && !equalPass) {
+            // todo seconda operatore di fila problemi ed
+            // operatore dopo uguale problemi
+            String TempResultView = numberOfDecimal.format(resultTemp) + "+";
+            textView.setText(TempResultView);
             operator = "+";
         }
 
     }
 
     public void onClickEqual(View view) {
-        result = resultTemp;
-        textView.setText(numberOfDecimal.format(result));
-        previousValue = null;
-        value=null;
-        resultTemp=null;
-        result = null;
+        if (resultTemp != null && !equalPass) {
+            result = resultTemp;
+            textView.setText(numberOfDecimal.format(result));
+            previousValue = null;
+            value = null;
+            resultTemp = null;
+            equalPass = true;
+        }
+
     }
 
     // ------------------------Functional---------------------------------------------------------------------
