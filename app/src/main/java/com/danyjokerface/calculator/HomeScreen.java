@@ -17,26 +17,29 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-@SuppressWarnings("FieldCanBeLocal")  //todo remove
+
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
-    private static Double value = null;  //todo update
+    private static Double previousValue;
+    private static Double value = null;
     private static Double remainder = 0.0;
-    private static Double previousValue; //todo update
-    private static String operator;
+    private static String operator = null;
+    private static Double resultTemp = null;
     private static Double result = null;
+    DecimalFormatSymbols decimalFormatSymbols;
+    DecimalFormat numberOfDecimal;
     private TextView textView;
-    private TextView author;
-    private Animation fade_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         textView = findViewById(R.id.operations);
-        author = findViewById(R.id.author);
-        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        TextView author = findViewById(R.id.author);
+        Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
+        decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
+        numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
     }
 
     // ------------------------Insert Number------------------------------------------------------------------
@@ -45,33 +48,35 @@ public class HomeScreen extends AppCompatActivity {
         if (result != null) {
             textView.setText("");
         }
-        if (value == null) {
-            textView.append(number_to_insert.toString());
-            value = number_to_insert.doubleValue();
-        } else {
-            textView.append(number_to_insert.toString());
+
+        if (operator != null) {
+            //todo update
             previousValue = value;
             value = number_to_insert.doubleValue();
-
             switch (operator) {
                 case ("/"):
-                    result = previousValue / value;
+                    resultTemp = previousValue / value;
+                    remainder = previousValue % value;
+                    operator = null;
                     break;
                 case ("*"):
-                    result = previousValue * value;
+                    resultTemp = previousValue * value;
+                    operator = null;
                     break;
                 case ("-"):
-                    result = previousValue - value;
+                    resultTemp = previousValue - value;
+                    operator = null;
                     break;
                 case ("+"):
-                    result = previousValue + value;
+                    resultTemp = previousValue + value;
+                    operator = null;
                     break;
-
                 //todo implement remainder and more number consecutive
-
             }
+
         }
 
+        textView.append(number_to_insert.toString());
     }
 
     public void onClickNine(View view) {
@@ -117,41 +122,63 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Operators----------------------------------------------------------------------
 
     public void onClickRemainder(View view) {
-        //limit insert only one % before insert another number
-        textView.append("%");
-        operator = "%";
-        //todo
+        if (operator == null) {
+            String formatRemainder = getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
+            textView.setText(formatRemainder);
+            remainder = null;
+        }
     }
 
     public void onClickDivision(View view) {
-        //limit insert only one / before insert another number
-        textView.append("/");
-        operator = "/";
-    } //todo
+        if (operator == null) {
+            String textViewString = textView.getText().toString();
+            textView.append("/");
+            operator = "/";
+            value = Double.parseDouble(textViewString);
+        }
+    }
 
     public void onClickMultiplication(View view) {
-        //limit insert only one * before insert another number
-        textView.append("*");
-        operator = "*";
-    } //todo
+        if (operator == null) {
+            String textViewString = textView.getText().toString();
+            textView.append("*");
+            operator = "*";
+            value = Double.parseDouble(textViewString);
+        }
+    }
 
     public void onClickSubtraction(View view) {
-        //limit insert only one - before insert another number
-        textView.append("-");
-        operator = "-";
-    } //todo
+        if (operator == null) {
+            String textViewString = textView.getText().toString();
+            textView.append("-");
+            operator = "-";
+            value = Double.parseDouble(textViewString);
+        }
+    }
 
     public void onClickSum(View view) {
-        //limit insert only one + before insert another number
-        textView.append("+");
-        operator = "+";
-        //todo
+        String textViewString = textView.getText().toString();
+        if (operator == null && resultTemp == null) {
+            textView.append("+");
+            operator = "+";
+            value = Double.parseDouble(textViewString);
+        } else {
+            String textViewCleanOperator = textViewString.substring(textViewString.indexOf("+") + 1);
+            value = Double.parseDouble(textViewCleanOperator);
+            String TempResultView = numberOfDecimal.format(resultTemp) + " + " + numberOfDecimal.format(value);
+            textView.setText(numberOfDecimal.format(TempResultView));
+            operator = "+";
+        }
+
     }
 
     public void onClickEqual(View view) {
-        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
-        DecimalFormat numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
+        result = resultTemp;
         textView.setText(numberOfDecimal.format(result));
+        previousValue = null;
+        value=null;
+        resultTemp=null;
+        result = null;
     }
 
     // ------------------------Functional---------------------------------------------------------------------
