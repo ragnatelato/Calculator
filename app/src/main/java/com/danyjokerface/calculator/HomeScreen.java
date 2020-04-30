@@ -65,6 +65,9 @@ public class HomeScreen extends AppCompatActivity {
         if (operator != null) {
             switch (operator) {
                 case ("%"):
+                    value = Double.parseDouble(stringNumberInsert);
+                    resultTemp = (previousValue * value) / 100;
+                    break;
 
                 case ("/"):
                     value = Double.parseDouble(stringNumberInsert);
@@ -86,7 +89,6 @@ public class HomeScreen extends AppCompatActivity {
                     value = Double.parseDouble(stringNumberInsert);
                     resultTemp = previousValue + value;
                     break;
-                //todo insert logic percentage
             }
         }
 
@@ -136,9 +138,32 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Operators------------------------------------------------------------------------------------------
 
     public void onClickPercentage(View view) {
-        //insert logic
+        if (operator == null && previousValue == null && !equalPass) {
+            previousValue = Double.parseDouble(stringNumberInsert);
+            textView.append("%");
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "%";
+        } else if (previousValue != null && !equalPass && value != null) {
+            operator = null;
+            previousValue = resultTemp;
+            String TempResultView = numberOfDecimal.format(resultTemp) + "%";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "%";
+        }
 
-        //(Numero da trovare la percentuale  X  la percentuale) diviso 100
+        if (result != null) {
+            String TempResultView = numberOfDecimal.format(result) + "%";
+            textView.setText(TempResultView);
+            previousValue = result;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "%";
+            equalPass = false;
+        }
+
     }
 
     public void onClickDivision(View view) {
