@@ -138,6 +138,14 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Operators------------------------------------------------------------------------------------------
 
     public void onClickPercentage(View view) {
+        if (value == null && operator != null) {
+            String TempResultView = numberOfDecimal.format(previousValue) + "%";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "%";
+        }
+
         if (operator == null && previousValue == null && !equalPass) {
             previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("%");
@@ -167,6 +175,14 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDivision(View view) {
+        if (value == null && operator != null) {
+            String TempResultView = numberOfDecimal.format(previousValue) + "/";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "/";
+        }
+
         if (operator == null && previousValue == null && !equalPass) {
             previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("/");
@@ -196,6 +212,14 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickMultiplication(View view) {
+        if (value == null && operator != null) {
+            String TempResultView = numberOfDecimal.format(previousValue) + "*";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "*";
+        }
+
         if (operator == null && previousValue == null && !equalPass) {
             previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("*");
@@ -225,6 +249,14 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSubtraction(View view) {
+        if (value == null && operator != null) {
+            String TempResultView = numberOfDecimal.format(previousValue) + "-";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "-";
+        }
+
         if (operator == null && previousValue == null && !equalPass) {
             previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("-");
@@ -254,10 +286,17 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSum(View view) {
+        if (value == null && operator != null) {
+            String TempResultView = numberOfDecimal.format(previousValue) + "+";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "+";
+        }
+
         if (operator == null && previousValue == null && !equalPass) {
             previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("+");
-            //todo inserire cambio a caldo dell'operatore come negli altri casi
             stringNumberInsert = "";
             buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
             operator = "+";
@@ -379,6 +418,7 @@ public class HomeScreen extends AppCompatActivity {
 //        String textViewString = textView.getText().toString().replace(",",".");
 //        value = Double.parseDouble(textViewString);
         // insert logic
+        //todo
     }
 
 }
