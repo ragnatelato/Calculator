@@ -329,7 +329,6 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickOperations(View view) {
-        // insert logic
     }
 
     public void onClickReset(View view) {
