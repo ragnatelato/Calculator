@@ -384,10 +384,8 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDelete(View view) {
-
-        //todo fix quando lo faccio su un risultato o su un operatore
-
         if (result != null) {
+            //todo fix quando lo faccio su un risultato o su un operatore
             String textViewString = textView.getText().toString();
             textView.setText(textViewString.substring(0, textViewString.length() - 1));
             result = Double.parseDouble(result.toString().substring(0, result.toString().length() - 1));
@@ -405,13 +403,19 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickPosNeg(View view) {
-//        if (textView.toString().equals("")) {
-//            textView.append("-");
-//            //value =
-//        } else {
-//            textView.toString().substring(textView.lenght()); //todo
-//        }
+        int searchOfSign = stringNumberInsert.indexOf("-");
+
+        if (searchOfSign != 0) {
+            String textViewString = textView.getText().toString();
+            textView.setText(textViewString.substring(0,
+                    Integer.parseInt(textViewString.concat("111" + textView))));
+//            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
+//            buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
+        } else {
+        }
+
     }
+
 
     public void onClickComma(View view) {
 //        textView.append(",");
