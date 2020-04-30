@@ -21,6 +21,7 @@ import java.util.Locale;
 public class HomeScreen extends AppCompatActivity {
     private static int count = 0;
     private static Double previousValue = null;
+    private static StringBuilder buildStringToValue;
     private static Double value = null;
     private static Double remainder = null;
     private static String operator = null;
@@ -29,6 +30,7 @@ public class HomeScreen extends AppCompatActivity {
     private static Boolean equalPass = false;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
+    private String stringNumberInsert = "";
     private TextView textView;
 
     @Override
@@ -39,6 +41,7 @@ public class HomeScreen extends AppCompatActivity {
         TextView author = findViewById(R.id.author);
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
+        buildStringToValue = new StringBuilder();
         decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
     }
@@ -46,33 +49,41 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Insert Number------------------------------------------------------------------
 
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
-        if (result != null) {
+        stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+
+        if (result != null && equalPass) {
             textView.setText("");
             result = null;
+            equalPass = false;
         }
 
-//        if (operator != null) {
-//            value = number_to_insert.doubleValue();
-//            switch (operator) {
-//                case ("/"):
-//                    resultTemp = previousValue / value;
-//                    remainder = previousValue % value;
-//                    operator = null;
-//                    break;
-//                case ("*"):
-//                    resultTemp = previousValue * value;
-//                    operator = null;
-//                    break;
-//                case ("-"):
-//                    resultTemp = previousValue - value;
-//                    operator = null;
-//                    break;
-//                case ("+"):
-//                    resultTemp = previousValue + value;
-//                    operator = null;
-//                    break;
-//                //todo implement remainder and more number consecutive
-//            }
+        if (!equalPass) {
+            result = null;
+            equalPass = false;
+        }
+
+        if (operator != null) {
+            switch (operator) {
+                case ("/"):
+                    resultTemp = previousValue / value;
+                    remainder = previousValue % value;
+                    operator = null;
+                    break;
+                case ("*"):
+                    resultTemp = previousValue * value;
+                    operator = null;
+                    break;
+                case ("-"):
+                    resultTemp = previousValue - value;
+                    operator = null;
+                    break;
+                case ("+"):
+                    value = Double.parseDouble(stringNumberInsert);
+                    resultTemp = previousValue + value;
+                    break;
+                //todo implement remainder and more number consecutive
+            }
+        }
 
         textView.append(number_to_insert.toString());
     }
@@ -119,35 +130,6 @@ public class HomeScreen extends AppCompatActivity {
 
     // ------------------------Operators----------------------------------------------------------------------
 
-    public void operations() {
-
-        if (operator != null) {
-            String textViewString = textView.getText().toString().substring(operator.length()); //todo fare
-            // dall'operatore in poi
-            value = Double.parseDouble(textViewString);
-            switch (operator) {
-                case ("/"):
-                    resultTemp = previousValue / value;
-                    remainder = previousValue % value;
-                    operator = null;
-                    break;
-                case ("*"):
-                    resultTemp = previousValue * value;
-                    operator = null;
-                    break;
-                case ("-"):
-                    resultTemp = previousValue - value;
-                    operator = null;
-                    break;
-                case ("+"):
-                    resultTemp = previousValue + value;
-                    operator = null;
-                    break;
-                //todo implement remainder and more number consecutive
-            }
-        }
-    }
-
     public void onClickRemainder(View view) {
         if (operator == null) {
             String formatRemainder = getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
@@ -155,48 +137,46 @@ public class HomeScreen extends AppCompatActivity {
             remainder = null;
             //todo finish
         }
+
     }
 
     public void onClickDivision(View view) {
-//        if (operator == null) {
-//            String textViewString = textView.getText().toString();
-//            textView.append("/");
-//            operator = "/";
-//            value = Double.parseDouble(textViewString);
-//        }
+        //insert logic
     }
 
     public void onClickMultiplication(View view) {
-//        if (operator == null) {
-//            String textViewString = textView.getText().toString();
-//            textView.append("*");
-//            operator = "*";
-//            value = Double.parseDouble(textViewString);
-//        }
+        //insert logic
     }
 
     public void onClickSubtraction(View view) {
-//        if (operator == null) {
-//            String textViewString = textView.getText().toString();
-//            textView.append("-");
-//            operator = "-";
-//            value = Double.parseDouble(textViewString);
-//        }
+        //insert logic
     }
 
     public void onClickSum(View view) {
         if (operator == null && previousValue == null && !equalPass) {
-            String textViewString = textView.getText().toString();
-            previousValue = Double.parseDouble(textViewString);
+            previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("+");
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
             operator = "+";
-        } else if (previousValue != null && !equalPass) {
-            // todo operatore dopo uguale problemi, calcoli lunghi errore
-            operations();
+        } else if (previousValue != null && !equalPass && value != null) {
+            operator = null;
+            previousValue = resultTemp;
             String TempResultView = numberOfDecimal.format(resultTemp) + "+";
             textView.setText(TempResultView);
-            previousValue = resultTemp;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
             operator = "+";
+        }
+
+        if (result != null) {
+            String TempResultView = numberOfDecimal.format(result) + "+";
+            textView.setText(TempResultView);
+            previousValue = result;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "+";
+            equalPass = false;
         }
 
     }
@@ -205,9 +185,12 @@ public class HomeScreen extends AppCompatActivity {
         if (resultTemp != null && !equalPass) {
             result = resultTemp;
             textView.setText(numberOfDecimal.format(result));
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
             previousValue = null;
             value = null;
             resultTemp = null;
+            operator = null;
             equalPass = true;
         }
 
@@ -236,6 +219,8 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickReset(View view) {
         textView.setText("");
+        stringNumberInsert = "";
+        buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
         previousValue = null;
         value = null;
         remainder = null;
@@ -246,9 +231,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDelete(View view) {
-        if (!textView.getText().toString().equals("")) {
+        if (!stringNumberInsert.equals("")) {
             String textViewString = textView.getText().toString();
             textView.setText(textViewString.substring(0, textViewString.length() - 1));
+            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length() - 1);
         }
 
     }
