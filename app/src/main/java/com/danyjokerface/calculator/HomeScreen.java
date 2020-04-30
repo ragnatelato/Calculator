@@ -137,6 +137,8 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickPercentage(View view) {
         //insert logic
+
+        //(Numero da trovare la percentuale  X  la percentuale) diviso 100
     }
 
     public void onClickDivision(View view) {
@@ -230,6 +232,7 @@ public class HomeScreen extends AppCompatActivity {
         if (operator == null && previousValue == null && !equalPass) {
             previousValue = Double.parseDouble(stringNumberInsert);
             textView.append("+");
+            //todo inserire cambio a caldo dell'operatore come negli altri casi
             stringNumberInsert = "";
             buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
             operator = "+";
@@ -319,19 +322,21 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickDelete(View view) {
 
-        //todo fix quando lo faccio su un risultato
+        //todo fix quando lo faccio su un risultato o su un operatore
 
         if (result != null) {
             String textViewString = textView.getText().toString();
             textView.setText(textViewString.substring(0, textViewString.length() - 1));
+            result = Double.parseDouble(result.toString().substring(0, result.toString().length() - 1));
+            textView.setText(numberOfDecimal.format(result));
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length() - 1);
+            buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
         }
         if (!stringNumberInsert.equals("")) {
             String textViewString = textView.getText().toString();
             textView.setText(textViewString.substring(0, textViewString.length() - 1));
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length() - 1);
+            buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
         }
 
     }
