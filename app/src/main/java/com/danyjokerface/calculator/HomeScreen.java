@@ -46,7 +46,7 @@ public class HomeScreen extends AppCompatActivity {
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
     }
 
-    // ------------------------Insert Number------------------------------------------------------------------
+    // ------------------------Insert Number--------------------------------------------------------------------------------------
 
     public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
         stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
@@ -64,24 +64,29 @@ public class HomeScreen extends AppCompatActivity {
 
         if (operator != null) {
             switch (operator) {
+                case ("%"):
+
                 case ("/"):
+                    value = Double.parseDouble(stringNumberInsert);
                     resultTemp = previousValue / value;
                     remainder = previousValue % value;
-                    operator = null;
                     break;
+
                 case ("*"):
+                    value = Double.parseDouble(stringNumberInsert);
                     resultTemp = previousValue * value;
-                    operator = null;
                     break;
+
                 case ("-"):
+                    value = Double.parseDouble(stringNumberInsert);
                     resultTemp = previousValue - value;
-                    operator = null;
                     break;
+
                 case ("+"):
                     value = Double.parseDouble(stringNumberInsert);
                     resultTemp = previousValue + value;
                     break;
-                //todo implement remainder and more number consecutive
+                //todo insert logic percentage
             }
         }
 
@@ -128,28 +133,97 @@ public class HomeScreen extends AppCompatActivity {
         insertNumberOnTextView(0);
     }
 
-    // ------------------------Operators----------------------------------------------------------------------
+    // ------------------------Operators------------------------------------------------------------------------------------------
 
-    public void onClickRemainder(View view) {
-        if (operator == null) {
-            String formatRemainder = getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
-            textView.setText(formatRemainder);
-            remainder = null;
-            //todo finish
+    public void onClickPercentage(View view) {
+        //insert logic
+    }
+
+    public void onClickDivision(View view) {
+        if (operator == null && previousValue == null && !equalPass) {
+            previousValue = Double.parseDouble(stringNumberInsert);
+            textView.append("/");
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "/";
+        } else if (previousValue != null && !equalPass && value != null) {
+            operator = null;
+            previousValue = resultTemp;
+            String TempResultView = numberOfDecimal.format(resultTemp) + "/";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "/";
+        }
+
+        if (result != null) {
+            String TempResultView = numberOfDecimal.format(result) + "/";
+            textView.setText(TempResultView);
+            previousValue = result;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "/";
+            equalPass = false;
         }
 
     }
 
-    public void onClickDivision(View view) {
-        //insert logic
-    }
-
     public void onClickMultiplication(View view) {
-        //insert logic
+        if (operator == null && previousValue == null && !equalPass) {
+            previousValue = Double.parseDouble(stringNumberInsert);
+            textView.append("*");
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "*";
+        } else if (previousValue != null && !equalPass && value != null) {
+            operator = null;
+            previousValue = resultTemp;
+            String TempResultView = numberOfDecimal.format(resultTemp) + "*";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "*";
+        }
+
+        if (result != null) {
+            String TempResultView = numberOfDecimal.format(result) + "*";
+            textView.setText(TempResultView);
+            previousValue = result;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "*";
+            equalPass = false;
+        }
+
     }
 
     public void onClickSubtraction(View view) {
-        //insert logic
+        if (operator == null && previousValue == null && !equalPass) {
+            previousValue = Double.parseDouble(stringNumberInsert);
+            textView.append("-");
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "-";
+        } else if (previousValue != null && !equalPass && value != null) {
+            operator = null;
+            previousValue = resultTemp;
+            String TempResultView = numberOfDecimal.format(resultTemp) + "-";
+            textView.setText(TempResultView);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "-";
+        }
+
+        if (result != null) {
+            String TempResultView = numberOfDecimal.format(result) + "-";
+            textView.setText(TempResultView);
+            previousValue = result;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            operator = "-";
+            equalPass = false;
+        }
+
     }
 
     public void onClickSum(View view) {
@@ -182,7 +256,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickEqual(View view) {
-        if (resultTemp != null && !equalPass) {
+        if (resultTemp != null && !equalPass && remainder == null) {
             result = resultTemp;
             textView.setText(numberOfDecimal.format(result));
             stringNumberInsert = "";
@@ -192,11 +266,24 @@ public class HomeScreen extends AppCompatActivity {
             resultTemp = null;
             operator = null;
             equalPass = true;
+        } else {
+            result = resultTemp;
+            textView.setText(numberOfDecimal.format(result));
+            String formatRemainder = "\n" + getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
+            textView.append(formatRemainder);
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+            remainder = null;
+            previousValue = null;
+            value = null;
+            resultTemp = null;
+            operator = null;
+            equalPass = true;
         }
 
     }
 
-    // ------------------------Functional---------------------------------------------------------------------
+    // ------------------------Functional-----------------------------------------------------------------------------------------
 
     //TODO customize toolbar
 
@@ -231,6 +318,15 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDelete(View view) {
+
+        //todo fix quando lo faccio su un risultato
+
+        if (result != null) {
+            String textViewString = textView.getText().toString();
+            textView.setText(textViewString.substring(0, textViewString.length() - 1));
+            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length() - 1);
+        }
         if (!stringNumberInsert.equals("")) {
             String textViewString = textView.getText().toString();
             textView.setText(textViewString.substring(0, textViewString.length() - 1));
