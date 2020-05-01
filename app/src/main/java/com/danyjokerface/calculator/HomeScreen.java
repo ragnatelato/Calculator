@@ -366,27 +366,33 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickPosNeg(View view) {
-//        String searchOfSign = textView.getText().toString();
+        String formatTextView = operations.getText().toString();
         String formatString = "";
 
         if (!convertSign) {
             formatString = "-";
             operations.setText(formatString);
             stringNumberInsert = formatString;
-            buildStringToValue = buildStringToValue.insert(0, "-");
             convertSign = true;
-
-        }
-//        else if (searchOfSign.substring(0, 1).contains("-")) {
-//            textView.append((convertSign.replace("-", "+")));
-//        }
-        else {
-            //formatString = "";
-            operations.setText(operations.getText().toString().substring(operations.length(), operations.length() - 1));
-            stringNumberInsert = stringNumberInsert.substring(stringNumberInsert.length(), stringNumberInsert.length() - 1);
-            buildStringToValue = buildStringToValue.delete(buildStringToValue.length(), buildStringToValue.length() - 1);
+        } else {
+            operations.setText("");
+            stringNumberInsert = stringNumberInsert.replace("-", "+");
             convertSign = false;
         }
+
+        if (!formatTextView.equals("") && operator == null) {
+            //numero
+            formatString = "-" + formatTextView;
+            operations.setText(formatString);
+            stringNumberInsert = formatString;
+
+        } else {
+            //riporto a +
+        }
+
+        if (!formatTextView.equals("") && operator != null) {
+            //operatore
+        }//riporto a +   ??
 
     }
 
