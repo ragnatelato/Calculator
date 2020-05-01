@@ -20,7 +20,6 @@ import java.util.Locale;
 
 
 public class HomeScreen extends AppCompatActivity {
-    private static int count = 0;
     private static Double previousValue = null;
     private static StringBuilder buildStringToValue;
     private static Double value = null;
@@ -32,6 +31,7 @@ public class HomeScreen extends AppCompatActivity {
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
     boolean checkclick = false;
+    boolean convertSign = false;
     private String stringNumberInsert = "";
     private TextView textView;
     private TextView textViewToolbar;
@@ -318,14 +318,14 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickAuthor(View view) {
-        //TODO toast too slow / change color toast day night theme
-        count++;
-        Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
-        if (count == 5) {
-            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
-            startActivity(intent);
-            count = 0;
-        }
+//        for (int count = 0; count <= 5; count++) {
+//            Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
+//            if (count == 5) {
+//                Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+//                startActivity(intent);
+//                count = 0;
+//            }
+//        }
 
     }
 
@@ -365,16 +365,26 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickPosNeg(View view) {
-        String searchOfSign = textView.getText().toString();
-        String convertSign = "";
+//        String searchOfSign = textView.getText().toString();
+        String formatString = "";
 
-        if (searchOfSign.isEmpty()) {
-            searchOfSign.replace("", "-");
+        if (!convertSign) {
+            formatString = "-";
+            textView.setText(formatString);
+            stringNumberInsert = formatString;
+            buildStringToValue = buildStringToValue.insert(0, "-");
+            convertSign = true;
 
-        } else if (searchOfSign.substring(0, 1).contains("-")) {
-            textView.append((convertSign.replace("-", "+")));
-        } else {
-            textView.append("-", 0, 1);
+        }
+//        else if (searchOfSign.substring(0, 1).contains("-")) {
+//            textView.append((convertSign.replace("-", "+")));
+//        }
+        else {
+            //formatString = "";
+            textView.setText(textView.getText().toString().substring(textView.length(), textView.length() - 1));
+            stringNumberInsert = stringNumberInsert.substring(stringNumberInsert.length(), stringNumberInsert.length() - 1);
+            buildStringToValue = buildStringToValue.delete(buildStringToValue.length(), buildStringToValue.length() - 1);
+            convertSign = false;
         }
 
     }
