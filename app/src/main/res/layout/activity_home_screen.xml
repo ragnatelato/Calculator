@@ -51,6 +51,7 @@
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toTopOf="@+id/operations"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView

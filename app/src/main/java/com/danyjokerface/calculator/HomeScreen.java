@@ -20,6 +20,7 @@ import java.util.Locale;
 
 
 public class HomeScreen extends AppCompatActivity {
+    private static int count = 0;
     private static Double previousValue = null;
     private static StringBuilder buildStringToValue;
     private static Double value = null;
@@ -315,17 +316,18 @@ public class HomeScreen extends AppCompatActivity {
             textViewToolbar.setText(getString(R.string.app_name));
             checkclick = false;
         }
+
     }
 
     public void onClickAuthor(View view) {
-//        for (int count = 0; count <= 5; count++) {
-//            Toast.makeText(getApplicationContext(), "Ti mancano ancora " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
-//            if (count == 5) {
-//                Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
-//                startActivity(intent);
-//                count = 0;
-//            }
-//        }
+        count++;
+
+        Toast.makeText(getApplicationContext(), getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
+        if (count == 5) {
+            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+            startActivity(intent);
+            count = 0;
+        }
 
     }
 
