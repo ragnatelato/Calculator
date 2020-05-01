@@ -137,187 +137,124 @@ public class HomeScreen extends AppCompatActivity {
 
     // ------------------------Operators------------------------------------------------------------------------------------------
 
+    public void changeOperatorOnTheFly(String operator) {
+        String TempResultView = numberOfDecimal.format(previousValue) + operator;
+        textView.setText(TempResultView);
+        stringNumberInsert = "";
+        buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+        HomeScreen.operator = operator;
+    }
+
+    public void insertFirstOperator(String operator) {
+        previousValue = Double.parseDouble(stringNumberInsert);
+        textView.append(operator);
+        stringNumberInsert = "";
+        buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+        HomeScreen.operator = operator;
+    }
+
+    public void insertMoreOperator(String operator) {
+        HomeScreen.operator = null;
+        previousValue = resultTemp;
+        String TempResultView = numberOfDecimal.format(resultTemp) + operator;
+        textView.setText(TempResultView);
+        stringNumberInsert = "";
+        buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+        HomeScreen.operator = operator;
+    }
+
+    public void operatorAfterEqual(String operator) {
+        String TempResultView = numberOfDecimal.format(result) + operator;
+        textView.setText(TempResultView);
+        previousValue = result;
+        stringNumberInsert = "";
+        buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+        HomeScreen.operator = operator;
+        equalPass = false;
+    }
+    
+
     public void onClickPercentage(View view) {
         if (value == null && operator != null) {
-            String TempResultView = numberOfDecimal.format(previousValue) + "%";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "%";
+            changeOperatorOnTheFly("%");
         }
 
         if (operator == null && previousValue == null && !equalPass) {
-            previousValue = Double.parseDouble(stringNumberInsert);
-            textView.append("%");
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "%";
+            insertFirstOperator("%");
         } else if (previousValue != null && !equalPass && value != null) {
-            operator = null;
-            previousValue = resultTemp;
-            String TempResultView = numberOfDecimal.format(resultTemp) + "%";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "%";
+            insertMoreOperator("%");
         }
 
         if (result != null) {
-            String TempResultView = numberOfDecimal.format(result) + "%";
-            textView.setText(TempResultView);
-            previousValue = result;
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "%";
-            equalPass = false;
+            operatorAfterEqual("%");
         }
 
     }
 
     public void onClickDivision(View view) {
         if (value == null && operator != null) {
-            String TempResultView = numberOfDecimal.format(previousValue) + "/";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "/";
+            changeOperatorOnTheFly("/");
         }
 
         if (operator == null && previousValue == null && !equalPass) {
-            previousValue = Double.parseDouble(stringNumberInsert);
-            textView.append("/");
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "/";
+            insertFirstOperator("/");
         } else if (previousValue != null && !equalPass && value != null) {
-            operator = null;
-            previousValue = resultTemp;
-            String TempResultView = numberOfDecimal.format(resultTemp) + "/";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "/";
+            insertMoreOperator("/");
         }
 
         if (result != null) {
-            String TempResultView = numberOfDecimal.format(result) + "/";
-            textView.setText(TempResultView);
-            previousValue = result;
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "/";
-            equalPass = false;
+            operatorAfterEqual("/");
         }
 
     }
 
     public void onClickMultiplication(View view) {
         if (value == null && operator != null) {
-            String TempResultView = numberOfDecimal.format(previousValue) + "*";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "*";
+            changeOperatorOnTheFly("*");
         }
 
         if (operator == null && previousValue == null && !equalPass) {
-            previousValue = Double.parseDouble(stringNumberInsert);
-            textView.append("*");
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "*";
+            insertFirstOperator("*");
         } else if (previousValue != null && !equalPass && value != null) {
-            operator = null;
-            previousValue = resultTemp;
-            String TempResultView = numberOfDecimal.format(resultTemp) + "*";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "*";
+            insertMoreOperator("*");
         }
 
         if (result != null) {
-            String TempResultView = numberOfDecimal.format(result) + "*";
-            textView.setText(TempResultView);
-            previousValue = result;
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "*";
-            equalPass = false;
+            operatorAfterEqual("*");
         }
 
     }
 
     public void onClickSubtraction(View view) {
         if (value == null && operator != null) {
-            String TempResultView = numberOfDecimal.format(previousValue) + "-";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "-";
+            changeOperatorOnTheFly("-");
         }
 
         if (operator == null && previousValue == null && !equalPass) {
-            previousValue = Double.parseDouble(stringNumberInsert);
-            textView.append("-");
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "-";
+            insertFirstOperator("-");
         } else if (previousValue != null && !equalPass && value != null) {
-            operator = null;
-            previousValue = resultTemp;
-            String TempResultView = numberOfDecimal.format(resultTemp) + "-";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "-";
+            insertMoreOperator("-");
         }
 
         if (result != null) {
-            String TempResultView = numberOfDecimal.format(result) + "-";
-            textView.setText(TempResultView);
-            previousValue = result;
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "-";
-            equalPass = false;
+            operatorAfterEqual("-");
         }
 
     }
 
     public void onClickSum(View view) {
         if (value == null && operator != null) {
-            String TempResultView = numberOfDecimal.format(previousValue) + "+";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "+";
+            changeOperatorOnTheFly("+");
         }
 
         if (operator == null && previousValue == null && !equalPass) {
-            previousValue = Double.parseDouble(stringNumberInsert);
-            textView.append("+");
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "+";
+            insertFirstOperator("+");
         } else if (previousValue != null && !equalPass && value != null) {
-            operator = null;
-            previousValue = resultTemp;
-            String TempResultView = numberOfDecimal.format(resultTemp) + "+";
-            textView.setText(TempResultView);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "+";
+            insertMoreOperator("+");
         }
 
         if (result != null) {
-            String TempResultView = numberOfDecimal.format(result) + "+";
-            textView.setText(TempResultView);
-            previousValue = result;
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            operator = "+";
-            equalPass = false;
+            operatorAfterEqual("+");
         }
 
     }
