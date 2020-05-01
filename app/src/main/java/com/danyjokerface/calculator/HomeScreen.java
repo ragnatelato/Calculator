@@ -172,14 +172,14 @@ public class HomeScreen extends AppCompatActivity {
         HomeScreen.operator = operator;
         equalPass = false;
     }
-    
+
 
     public void onClickPercentage(View view) {
-        if (value == null && operator != null) {
+        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("%");
         }
 
-        if (operator == null && previousValue == null && !equalPass) {
+        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
             insertFirstOperator("%");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("%");
@@ -192,11 +192,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDivision(View view) {
-        if (value == null && operator != null) {
+        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("/");
         }
 
-        if (operator == null && previousValue == null && !equalPass) {
+        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
             insertFirstOperator("/");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("/");
@@ -209,11 +209,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickMultiplication(View view) {
-        if (value == null && operator != null) {
+        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("*");
         }
 
-        if (operator == null && previousValue == null && !equalPass) {
+        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
             insertFirstOperator("*");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("*");
@@ -226,11 +226,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSubtraction(View view) {
-        if (value == null && operator != null) {
+        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("-");
         }
 
-        if (operator == null && previousValue == null && !equalPass) {
+        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
             insertFirstOperator("-");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("-");
@@ -243,11 +243,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSum(View view) {
-        if (value == null && operator != null) {
+        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("+");
         }
 
-        if (operator == null && previousValue == null && !equalPass) {
+        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
             insertFirstOperator("+");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("+");
@@ -260,7 +260,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickEqual(View view) {
-        if (resultTemp != null && !equalPass && remainder == null) {
+        if (resultTemp != null && !equalPass && remainder == null && !textView.getText().toString().isEmpty()) {
             result = resultTemp;
             textView.setText(numberOfDecimal.format(result));
             stringNumberInsert = "";
@@ -271,18 +271,20 @@ public class HomeScreen extends AppCompatActivity {
             operator = null;
             equalPass = true;
         } else {
-            result = resultTemp;
-            textView.setText(numberOfDecimal.format(result));
-            String formatRemainder = "\n" + getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
-            textView.append(formatRemainder);
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            remainder = null;
-            previousValue = null;
-            value = null;
-            resultTemp = null;
-            operator = null;
-            equalPass = true;
+            if (!textView.getText().toString().isEmpty()) {
+                result = resultTemp;
+                textView.setText(numberOfDecimal.format(result));
+                String formatRemainder = "\n" + getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
+                textView.append(formatRemainder);
+                stringNumberInsert = "";
+                buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+                remainder = null;
+                previousValue = null;
+                value = null;
+                resultTemp = null;
+                operator = null;
+                equalPass = true;
+            }
         }
 
     }
@@ -340,25 +342,22 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickPosNeg(View view) {
-        int searchOfSign = stringNumberInsert.indexOf("-");
+        String searchOfSign = textView.getText().toString();
 
-        if (searchOfSign != 0) {
-            String textViewString = textView.getText().toString();
-            textView.setText(textViewString.substring(0,
-                    Integer.parseInt(textViewString.concat("111" + textView))));
-//            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
-//            buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
+        if (searchOfSign.isEmpty()) {
+            textView.append("-", 0, 1);
+
+        } else if (searchOfSign.substring(0, 1).contains("-")) {
+            textView.append("", 0, 1);
+
         } else {
+            textView.append("-", 0, 1);
+
         }
 
     }
 
-
     public void onClickComma(View view) {
-//        textView.append(",");
-//        String textViewString = textView.getText().toString().replace(",",".");
-//        value = Double.parseDouble(textViewString);
-        // insert logic
         //todo
     }
 
