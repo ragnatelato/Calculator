@@ -7,7 +7,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,19 +31,20 @@ public class HomeScreen extends AppCompatActivity {
     private static Boolean equalPass = false;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
-    Toolbar toolbar;
+    boolean checkclick = false;
     private String stringNumberInsert = "";
     private TextView textView;
+    private TextView textViewToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         textView = findViewById(R.id.operations);
+        textViewToolbar = findViewById(R.id.textViewToolbar);
         TextView author = findViewById(R.id.author);
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
-        toolbar = findViewById(R.id.toolbar);
         buildStringToValue = new StringBuilder();
         decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
@@ -303,7 +303,18 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Functional-----------------------------------------------------------------------------------------
 
     public void onClickToolbar(View view) {
-        toolbar.setTitle(R.string.app_name);
+    }
+
+    public void onClickTextViewToolbar(View view) {
+
+        if (!checkclick) {
+            String formatString = (getString(R.string.Greeting) + " " + new String(Character.toChars(0x1F609)));
+            textViewToolbar.setText(formatString);
+            checkclick = true;
+        } else {
+            textViewToolbar.setText(getString(R.string.app_name));
+            checkclick = false;
+        }
     }
 
     public void onClickAuthor(View view) {
