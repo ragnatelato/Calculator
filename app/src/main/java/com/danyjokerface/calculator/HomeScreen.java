@@ -11,7 +11,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.jetbrains.annotations.NotNull;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -32,6 +36,7 @@ public class HomeScreen extends AppCompatActivity {
     DecimalFormat numberOfDecimal;
     private String stringNumberInsert = "";
     private TextView textView;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +49,22 @@ public class HomeScreen extends AppCompatActivity {
         buildStringToValue = new StringBuilder();
         decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+
+        });
+        adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
     }
 
     // ------------------------Insert Number--------------------------------------------------------------------------------------
 
-    public void insertNumberOnTextView(@NotNull Integer number_to_insert) {
+    public void insertNumberOnTextView(Integer number_to_insert) {
         stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
 
         if (result != null && equalPass) {
@@ -343,16 +359,15 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickPosNeg(View view) {
         String searchOfSign = textView.getText().toString();
+        String convertSign = "";
 
         if (searchOfSign.isEmpty()) {
-            textView.append("-", 0, 1);
+            searchOfSign.replace("", "-");
 
         } else if (searchOfSign.substring(0, 1).contains("-")) {
-            textView.append("", 0, 1);
-
+            textView.append((convertSign.replace("-", "+")));
         } else {
             textView.append("-", 0, 1);
-
         }
 
     }
@@ -360,5 +375,7 @@ public class HomeScreen extends AppCompatActivity {
     public void onClickComma(View view) {
         //todo
     }
+
+    //todo ads
 
 }

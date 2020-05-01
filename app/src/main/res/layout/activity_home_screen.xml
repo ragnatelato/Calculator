@@ -41,9 +41,9 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearHighestNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/operations">
+            app:layout_constraintStart_toStartOf="parent">
 
         <Button
                 android:id="@+id/button_reset"
@@ -96,9 +96,9 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearHighNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearOperationRow">
+            app:layout_constraintStart_toStartOf="parent">
 
         <Button
                 android:id="@+id/button_seven"
@@ -151,9 +151,9 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearMiddleNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearHighestNumberRow">
+            app:layout_constraintStart_toStartOf="parent">
 
         <Button
                 android:id="@+id/button_four"
@@ -206,9 +206,9 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLowerNumberRor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearHighNumberRow">
+            app:layout_constraintStart_toStartOf="parent">
 
         <Button
                 android:id="@+id/button_one"
@@ -261,9 +261,10 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/adView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
+
+            app:layout_constraintStart_toStartOf="parent">
 
         <Button
                 android:id="@+id/button_pos_neg"
@@ -310,6 +311,20 @@
                 android:textSize="27sp"
                 tools:ignore="ButtonStyle" />
 
+
     </LinearLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-9185804574232701/8098433670"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
