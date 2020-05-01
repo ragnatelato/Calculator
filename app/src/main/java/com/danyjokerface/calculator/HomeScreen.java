@@ -395,6 +395,6 @@ public class HomeScreen extends AppCompatActivity {
         //todo
     }
 
-    //todo vedere se gli annunci vanno
+    //todo sostituire con i miei annunci prima di pubblicare
 
 }
