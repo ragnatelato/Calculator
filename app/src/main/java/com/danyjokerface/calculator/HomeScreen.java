@@ -34,14 +34,14 @@ public class HomeScreen extends AppCompatActivity {
     boolean checkclick = false;
     boolean convertSign = false;
     private String stringNumberInsert = "";
-    private TextView textView;
+    private TextView operations;
     private TextView textViewToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        textView = findViewById(R.id.operations);
+        operations = findViewById(R.id.operations);
         textViewToolbar = findViewById(R.id.textViewToolbar);
         TextView author = findViewById(R.id.author);
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -58,13 +58,13 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    // ------------------------Insert Number--------------------------------------------------------------------------------------
+    // ------------------------Insert Number------------------------------------------------------------------------------------------------
 
     public void insertNumberOnTextView(Integer number_to_insert) {
         stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
 
         if (result != null && equalPass) {
-            textView.setText("");
+            operations.setText("");
             result = null;
             equalPass = false;
         }
@@ -104,7 +104,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         }
 
-        textView.append(number_to_insert.toString());
+        operations.append(number_to_insert.toString());
     }
 
     public void onClickNine(View view) {
@@ -147,11 +147,11 @@ public class HomeScreen extends AppCompatActivity {
         insertNumberOnTextView(0);
     }
 
-    // ------------------------Operators------------------------------------------------------------------------------------------
+    // ------------------------Operators----------------------------------------------------------------------------------------------------
 
     public void changeOperatorOnTheFly(String operator) {
         String TempResultView = numberOfDecimal.format(previousValue) + operator;
-        textView.setText(TempResultView);
+        operations.setText(TempResultView);
         stringNumberInsert = "";
         buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
         HomeScreen.operator = operator;
@@ -159,7 +159,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void insertFirstOperator(String operator) {
         previousValue = Double.parseDouble(stringNumberInsert);
-        textView.append(operator);
+        operations.append(operator);
         stringNumberInsert = "";
         buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
         HomeScreen.operator = operator;
@@ -169,7 +169,7 @@ public class HomeScreen extends AppCompatActivity {
         HomeScreen.operator = null;
         previousValue = resultTemp;
         String TempResultView = numberOfDecimal.format(resultTemp) + operator;
-        textView.setText(TempResultView);
+        operations.setText(TempResultView);
         stringNumberInsert = "";
         buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
         HomeScreen.operator = operator;
@@ -177,7 +177,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void operatorAfterEqual(String operator) {
         String TempResultView = numberOfDecimal.format(result) + operator;
-        textView.setText(TempResultView);
+        operations.setText(TempResultView);
         previousValue = result;
         stringNumberInsert = "";
         buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
@@ -187,11 +187,11 @@ public class HomeScreen extends AppCompatActivity {
 
 
     public void onClickPercentage(View view) {
-        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
+        if (value == null && operator != null && !operations.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("%");
         }
 
-        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
+        if (operator == null && previousValue == null && !equalPass && !operations.getText().toString().isEmpty()) {
             insertFirstOperator("%");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("%");
@@ -204,11 +204,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDivision(View view) {
-        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
+        if (value == null && operator != null && !operations.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("/");
         }
 
-        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
+        if (operator == null && previousValue == null && !equalPass && !operations.getText().toString().isEmpty()) {
             insertFirstOperator("/");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("/");
@@ -221,11 +221,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickMultiplication(View view) {
-        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
+        if (value == null && operator != null && !operations.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("*");
         }
 
-        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
+        if (operator == null && previousValue == null && !equalPass && !operations.getText().toString().isEmpty()) {
             insertFirstOperator("*");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("*");
@@ -238,11 +238,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSubtraction(View view) {
-        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
+        if (value == null && operator != null && !operations.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("-");
         }
 
-        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
+        if (operator == null && previousValue == null && !equalPass && !operations.getText().toString().isEmpty()) {
             insertFirstOperator("-");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("-");
@@ -255,11 +255,11 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickSum(View view) {
-        if (value == null && operator != null && !textView.getText().toString().isEmpty()) {
+        if (value == null && operator != null && !operations.getText().toString().isEmpty()) {
             changeOperatorOnTheFly("+");
         }
 
-        if (operator == null && previousValue == null && !equalPass && !textView.getText().toString().isEmpty()) {
+        if (operator == null && previousValue == null && !equalPass && !operations.getText().toString().isEmpty()) {
             insertFirstOperator("+");
         } else if (previousValue != null && !equalPass && value != null) {
             insertMoreOperator("+");
@@ -272,9 +272,9 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickEqual(View view) {
-        if (resultTemp != null && !equalPass && remainder == null && !textView.getText().toString().isEmpty()) {
+        if (resultTemp != null && !equalPass && remainder == null && !operations.getText().toString().isEmpty()) {
             result = resultTemp;
-            textView.setText(numberOfDecimal.format(result));
+            operations.setText(numberOfDecimal.format(result));
             stringNumberInsert = "";
             buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
             previousValue = null;
@@ -283,11 +283,11 @@ public class HomeScreen extends AppCompatActivity {
             operator = null;
             equalPass = true;
         } else {
-            if (!textView.getText().toString().isEmpty()) {
+            if (!operations.getText().toString().isEmpty()) {
                 result = resultTemp;
-                textView.setText(numberOfDecimal.format(result));
+                operations.setText(numberOfDecimal.format(result));
                 String formatRemainder = "\n" + getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
-                textView.append(formatRemainder);
+                operations.append(formatRemainder);
                 stringNumberInsert = "";
                 buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
                 remainder = null;
@@ -301,13 +301,12 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    // ------------------------Functional-----------------------------------------------------------------------------------------
+    // ------------------------Functional---------------------------------------------------------------------------------------------------
 
     public void onClickToolbar(View view) {
     }
 
     public void onClickTextViewToolbar(View view) {
-
         if (!checkclick) {
             String formatString = (getString(R.string.Greeting) + " " + new String(Character.toChars(0x1F609)));
             textViewToolbar.setText(formatString);
@@ -320,22 +319,22 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickAuthor(View view) {
-        count++;
+        Toast.makeText(this, getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(getApplicationContext(), getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
         if (count == 5) {
             Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
             startActivity(intent);
             count = 0;
         }
 
+        count++;
     }
 
     public void onClickOperations(View view) {
     }
 
     public void onClickReset(View view) {
-        textView.setText("");
+        operations.setText("");
         stringNumberInsert = "";
         buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
         previousValue = null;
@@ -350,16 +349,16 @@ public class HomeScreen extends AppCompatActivity {
     public void onClickDelete(View view) {
         if (result != null) {
             //todo fix quando lo faccio su un risultato o su un operatore
-            String textViewString = textView.getText().toString();
-            textView.setText(textViewString.substring(0, textViewString.length() - 1));
+            String textViewString = operations.getText().toString();
+            operations.setText(textViewString.substring(0, textViewString.length() - 1));
             result = Double.parseDouble(result.toString().substring(0, result.toString().length() - 1));
-            textView.setText(numberOfDecimal.format(result));
+            operations.setText(numberOfDecimal.format(result));
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
             buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
         }
         if (!stringNumberInsert.equals("")) {
-            String textViewString = textView.getText().toString();
-            textView.setText(textViewString.substring(0, textViewString.length() - 1));
+            String textViewString = operations.getText().toString();
+            operations.setText(textViewString.substring(0, textViewString.length() - 1));
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
             buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
         }
@@ -372,7 +371,7 @@ public class HomeScreen extends AppCompatActivity {
 
         if (!convertSign) {
             formatString = "-";
-            textView.setText(formatString);
+            operations.setText(formatString);
             stringNumberInsert = formatString;
             buildStringToValue = buildStringToValue.insert(0, "-");
             convertSign = true;
@@ -383,7 +382,7 @@ public class HomeScreen extends AppCompatActivity {
 //        }
         else {
             //formatString = "";
-            textView.setText(textView.getText().toString().substring(textView.length(), textView.length() - 1));
+            operations.setText(operations.getText().toString().substring(operations.length(), operations.length() - 1));
             stringNumberInsert = stringNumberInsert.substring(stringNumberInsert.length(), stringNumberInsert.length() - 1);
             buildStringToValue = buildStringToValue.delete(buildStringToValue.length(), buildStringToValue.length() - 1);
             convertSign = false;
