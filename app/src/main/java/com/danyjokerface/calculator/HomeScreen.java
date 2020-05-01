@@ -1,6 +1,5 @@
 package com.danyjokerface.calculator;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,14 +7,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -34,9 +32,9 @@ public class HomeScreen extends AppCompatActivity {
     private static Boolean equalPass = false;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
+    Toolbar toolbar;
     private String stringNumberInsert = "";
     private TextView textView;
-    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,17 +44,14 @@ public class HomeScreen extends AppCompatActivity {
         TextView author = findViewById(R.id.author);
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
+        toolbar = findViewById(R.id.toolbar);
         buildStringToValue = new StringBuilder();
         decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-
+        MobileAds.initialize(this, initializationStatus -> {
         });
-        adView = findViewById(R.id.adView);
+        AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
@@ -307,9 +302,10 @@ public class HomeScreen extends AppCompatActivity {
 
     // ------------------------Functional-----------------------------------------------------------------------------------------
 
-    //TODO customize toolbar
+    public void onClickToolbar(View view) {
+        toolbar.setTitle(R.string.app_name);
+    }
 
-    @SuppressLint("MissingPermission")
     public void onClickAuthor(View view) {
         //TODO toast too slow / change color toast day night theme
         count++;
@@ -376,6 +372,6 @@ public class HomeScreen extends AppCompatActivity {
         //todo
     }
 
-    //todo ads
+    //todo vedere se gli annunci vanno
 
 }
