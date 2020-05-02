@@ -355,14 +355,19 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickDelete(View view) {
 
-        //todo fix quando lo faccio su un risultato
-
         String textViewString = operations.getText().toString();
 
         if (textViewString.equals("")) {
             operations.setText("");
             setOperation = "";
-            stringNumberInsert = setOperation;
+            previousValue = null;
+            value = null;
+            remainder = null;
+            operator = null;
+            resultTemp = null;
+            result = null;
+            stringNumberInsert = "";
+            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
         }
 
         if (!textViewString.isEmpty() && result == null) {
