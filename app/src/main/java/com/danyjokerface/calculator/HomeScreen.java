@@ -2,6 +2,7 @@ package com.danyjokerface.calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -29,10 +30,12 @@ public class HomeScreen extends AppCompatActivity {
     private static Double resultTemp = null;
     private static Double result = null;
     private static Boolean equalPass = false;
+    private static String formatString = "";
+    private static String formatOperationToString;
+    private static String setOperation;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
     boolean checkclick = false;
-    boolean convertSign = false;
     private String stringNumberInsert = "";
     private TextView operations;
     private TextView textViewToolbar;
@@ -46,6 +49,7 @@ public class HomeScreen extends AppCompatActivity {
         TextView author = findViewById(R.id.author);
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
+        formatOperationToString = operations.getText().toString();
         buildStringToValue = new StringBuilder();
         decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
@@ -272,33 +276,36 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickEqual(View view) {
-        if (resultTemp != null && !equalPass && remainder == null && !operations.getText().toString().isEmpty()) {
-            result = resultTemp;
-            operations.setText(numberOfDecimal.format(result));
-            stringNumberInsert = "";
-            buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-            previousValue = null;
-            value = null;
-            resultTemp = null;
-            operator = null;
-            equalPass = true;
-        } else {
-            if (!operations.getText().toString().isEmpty()) {
+        if (resultTemp != null) {
+            if (!equalPass && remainder == null && !operations.getText().toString().isEmpty()) {
                 result = resultTemp;
                 operations.setText(numberOfDecimal.format(result));
-                String formatRemainder = "\n" + getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
-                operations.append(formatRemainder);
                 stringNumberInsert = "";
                 buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
-                remainder = null;
                 previousValue = null;
                 value = null;
                 resultTemp = null;
                 operator = null;
                 equalPass = true;
+            } else {
+                if (!operations.getText().toString().isEmpty()) {
+                    result = resultTemp;
+                    operations.setText(numberOfDecimal.format(result));
+                    String formatRemainder = "\n" + getString(R.string.Remainder) + " " + numberOfDecimal.format(remainder);
+                    operations.append(formatRemainder);
+                    stringNumberInsert = "";
+                    buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+                    remainder = null;
+                    previousValue = null;
+                    value = null;
+                    resultTemp = null;
+                    operator = null;
+                    equalPass = true;
+                }
             }
+            setOperation = result.toString();
+            stringNumberInsert = setOperation;
         }
-
     }
 
     // ------------------------Functional---------------------------------------------------------------------------------------------------
@@ -347,59 +354,102 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDelete(View view) {
-        if (result != null) {
-            //todo fix quando lo faccio su un risultato o su un operatore
-            String textViewString = operations.getText().toString();
-            operations.setText(textViewString.substring(0, textViewString.length() - 1));
-            result = Double.parseDouble(result.toString().substring(0, result.toString().length() - 1));
-            operations.setText(numberOfDecimal.format(result));
-            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
-            buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
+
+        //todo fix quando lo faccio su un risultato
+
+        String textViewString = operations.getText().toString();
+
+        if (textViewString.equals("")) {
+            operations.setText("");
+            setOperation = "";
+            stringNumberInsert = setOperation;
         }
-        if (!stringNumberInsert.equals("")) {
-            String textViewString = operations.getText().toString();
+
+        if (!textViewString.isEmpty() && result == null) {
+
             operations.setText(textViewString.substring(0, textViewString.length() - 1));
-            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
-            buildStringToValue = buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
+            setOperation = textViewString.substring(0, textViewString.length() - 1);
+            stringNumberInsert = setOperation;
+        }
+
+        if (!stringNumberInsert.equals("") && result == null) {
+
+            operations.setText(textViewString.substring(0, textViewString.length() - 1));
+            setOperation = textViewString.substring(0, textViewString.length() - 1);
+            stringNumberInsert = setOperation;
+        }
+
+        if (!textViewString.equals("")) {
+            final boolean equals = textViewString.substring(0, textViewString.length() - 1).equals("");
+            if (result != null && !equals) {
+                operations.setText(textViewString.substring(0, textViewString.length() - 1));
+                setOperation = textViewString.substring(0, textViewString.length() - 1);
+                result = Double.parseDouble(setOperation);
+            }
+            if (equals) {
+                operations.setText("");
+                setOperation = "";
+                result = null;
+            }
+
         }
 
     }
 
     public void onClickPosNeg(View view) {
         String formatTextView = operations.getText().toString();
-        String formatString = "";
 
-        if (!convertSign) {
+        if (stringNumberInsert == null) {
+        }
+
+        if (formatTextView.equals("") || formatTextView.equals("+")) {
             formatString = "-";
             operations.setText(formatString);
-            stringNumberInsert = formatString;
-            convertSign = true;
-        } else {
-            operations.setText("");
-            stringNumberInsert = stringNumberInsert.replace("-", "+");
-            convertSign = false;
-        }
-
-        if (!formatTextView.equals("") && operator == null) {
-            //numero
-            formatString = "-" + formatTextView;
+        } else if (formatTextView.equals("-")) {
+            formatString = "+";
             operations.setText(formatString);
-            stringNumberInsert = formatString;
-
         } else {
-            //riporto a +
+//            if (formatString.equals("-" + stringNumberInsert)) {
+//                formatString = "" + stringNumberInsert;
+//                operations.setText(formatString);
+//            } else {
+//                formatString = "-" + stringNumberInsert;
+//                operations.setText(formatString);
+//            }
         }
 
-        if (!formatTextView.equals("") && operator != null) {
-            //operatore
-        }//riporto a +   ??
+        if (operator != null) {
 
+        }
+
+        if (result != null) {
+            if (result > 0) {
+                formatString = "-" + result;
+                operations.setText(formatString);
+                result = Double.parseDouble(formatString);
+
+            } else if (result < 0) {
+                formatString = result.toString().replace("-", "+");
+                operations.setText(formatString);
+                result = Double.parseDouble(formatString);
+            }
+
+        }
+
+
+//        previousValue = Double.parseDouble(formatString + stringNumberInsert);
     }
 
     public void onClickComma(View view) {
-        //todo
+        if (stringNumberInsert != null) {
+            Log.d("todo", "Insert comma logic!");
+            operations.setText(",");
+            setOperation = ",";
+            //todo
+        }
     }
 
-    //todo sostituire con i miei annunci prima di pubblicare
+    //todo sostituire con i miei annunci prima di pubblicare e fare 2 versioni in 2 branch separati,
+    // la versione per il Playstore non avrà i click sull'autore
 
 }
