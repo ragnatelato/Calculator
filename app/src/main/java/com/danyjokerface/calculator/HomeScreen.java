@@ -29,7 +29,8 @@ public class HomeScreen extends AppCompatActivity {
     private static Double resultTemp = null;
     private static Double result = null;
     private static Boolean equalPass = false;
-    private static String setOperation;
+    private static String setOperation = "";
+    private static boolean commaValue = false;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
     boolean checkclick = false;
@@ -61,13 +62,7 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Insert Number------------------------------------------------------------------------------------------------
 
     public void insertNumberOnTextView(Integer number_to_insert) {
-        if (setOperation.contains(",") && !operations.getText().toString().equals("")) {
-            stringNumberInsert = buildStringToValue.append(previousValue).toString();
-        } else {
-            stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
-        }
-
-//        stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+        stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
 
         if (result != null && equalPass) {
             operations.setText("");
@@ -108,6 +103,10 @@ public class HomeScreen extends AppCompatActivity {
                     resultTemp = previousValue + value;
                     break;
             }
+        }
+
+        if (setOperation.contains(",")) {
+            previousValue = Double.parseDouble(previousValue + "" + number_to_insert);
         }
 
         operations.append(number_to_insert.toString());
@@ -273,6 +272,11 @@ public class HomeScreen extends AppCompatActivity {
 
         if (result != null) {
             operatorAfterEqual("+");
+        }
+
+        if (commaValue)
+        {
+            insertFirstOperator("+");
         }
 
     }
@@ -451,23 +455,26 @@ public class HomeScreen extends AppCompatActivity {
 
     public void onClickComma(View view) {
         //todo
-        String setOperationforNumber = "";
 
         if (!stringNumberInsert.equals("")) {
             setOperation = stringNumberInsert + ",";
-            setOperationforNumber = stringNumberInsert + ".";
+            commaValue = true;
             operations.setText(setOperation);
-            stringNumberInsert = setOperation;
-            previousValue = Double.parseDouble(setOperationforNumber);
+
+            previousValue = Double.parseDouble(stringNumberInsert + ".");
         }
 
-        if (stringNumberInsert.equals("")) {
+        if (stringNumberInsert.equals("") && !commaValue) {
             operations.setText("");
+
             setOperation = "";
+            commaValue = false;
             previousValue = null;
             stringNumberInsert = "";
         }
 
+        buildStringToValue = buildStringToValue.delete(0, buildStringToValue.length());
+        stringNumberInsert = "";
     }
 
     //todo sostituire con i miei annunci prima di pubblicare e fare 2 versioni in 2 branch separati,
