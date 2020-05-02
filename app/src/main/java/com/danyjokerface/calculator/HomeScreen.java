@@ -2,7 +2,6 @@ package com.danyjokerface.calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -30,8 +29,6 @@ public class HomeScreen extends AppCompatActivity {
     private static Double resultTemp = null;
     private static Double result = null;
     private static Boolean equalPass = false;
-    private static String formatString = "";
-    private static String formatOperationToString;
     private static String setOperation;
     DecimalFormatSymbols decimalFormatSymbols;
     DecimalFormat numberOfDecimal;
@@ -49,7 +46,6 @@ public class HomeScreen extends AppCompatActivity {
         TextView author = findViewById(R.id.author);
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
-        formatOperationToString = operations.getText().toString();
         buildStringToValue = new StringBuilder();
         decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
         numberOfDecimal = new DecimalFormat("#.##########", decimalFormatSymbols);
@@ -65,7 +61,13 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Insert Number------------------------------------------------------------------------------------------------
 
     public void insertNumberOnTextView(Integer number_to_insert) {
-        stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+        if (setOperation.contains(",") && !operations.getText().toString().equals("")) {
+            stringNumberInsert = buildStringToValue.append(previousValue).toString();
+        } else {
+            stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+        }
+
+//        stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
 
         if (result != null && equalPass) {
             operations.setText("");
@@ -407,6 +409,7 @@ public class HomeScreen extends AppCompatActivity {
         if (stringNumberInsert == null) {
         }
 
+        String formatString = "";
         if (formatTextView.equals("") || formatTextView.equals("+")) {
             formatString = "-";
             operations.setText(formatString);
@@ -443,15 +446,28 @@ public class HomeScreen extends AppCompatActivity {
 
 
 //        previousValue = Double.parseDouble(formatString + stringNumberInsert);
+        //todo
     }
 
     public void onClickComma(View view) {
-        if (stringNumberInsert != null) {
-            Log.d("todo", "Insert comma logic!");
-            operations.setText(",");
-            setOperation = ",";
-            //todo
+        //todo
+        String setOperationforNumber = "";
+
+        if (!stringNumberInsert.equals("")) {
+            setOperation = stringNumberInsert + ",";
+            setOperationforNumber = stringNumberInsert + ".";
+            operations.setText(setOperation);
+            stringNumberInsert = setOperation;
+            previousValue = Double.parseDouble(setOperationforNumber);
         }
+
+        if (stringNumberInsert.equals("")) {
+            operations.setText("");
+            setOperation = "";
+            previousValue = null;
+            stringNumberInsert = "";
+        }
+
     }
 
     //todo sostituire con i miei annunci prima di pubblicare e fare 2 versioni in 2 branch separati,
