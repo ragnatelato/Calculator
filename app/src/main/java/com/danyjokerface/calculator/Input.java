@@ -22,19 +22,20 @@ public class Input extends HomeScreen {
     // ------------------------Insert Numbers-----------------------------------------------------------------------------------------------
 
     // stringNumberInsert storage value of button numeric pressed
-    public void appendNumberForTextView(int number_to_insert) {
+    public String appendNumberForTextView(int number_to_insert) {
+        String insertOnTextView = "";
+
+        // delete textview before insert operator and second numbers
         if (!stringToInsertOperations.equals("")) {
+            insertOnTextView = buildStringToValue.append(number_to_insert).toString();
             buildStringToValue = new StringBuilder();
             stringToInsertOperations = "";
         }
 
+        //assign number insert
         stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
 
-        if (result != 0.0) {
-            operations.setText("");
-            result = 0.0;
-        }
-
+        // execute operations
         if (operator != 'n') {
             switch (operator) {
                 case ('%'):
@@ -69,17 +70,30 @@ public class Input extends HomeScreen {
             value = 0.0;
         }
 
-//        if (setOperation.contains(",")) {
-//            previousValue = Double.parseDouble(previousValue + "" + number_to_insert);
-//        } else {
-////            operations.append( previousValue + ","number_to_insert.toString());
-//        }
+        //if insert number after press equal
+        if (result != 0.0) {
+            buildStringToValue = new StringBuilder();
+            stringToInsertOperations = "";
+            result = 0.0;
+            return stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+        }
+
+        //if insert number after press operator
+        if (!insertOnTextView.equals("")) {
+            return insertOnTextView;
+        }
+
+        // other cases
+        else {
+            return stringNumberInsert;
+        }
 
     }
 
     // ------------------------Operators----------------------------------------------------------------------------------------------------
 
     public String insertOperator(char operator) {
+
         //first operator
         if (Input.operator == 'n' && previousValue == 0.0 && result == 0.0 && resultTemp == 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
             insertFirstOperator(operator);
@@ -92,6 +106,7 @@ public class Input extends HomeScreen {
 
             return stringToInsertOperations;
         }
+
         //more operator
         else if (resultTemp != 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
             insertMoreOperator(operator);
@@ -183,6 +198,7 @@ public class Input extends HomeScreen {
                 int resultToInt = result.intValue();
                 return Integer.toString(resultToInt);
             }
+
             //division/remainder logic for equal
             else {
                 buildStringToValue = new StringBuilder();
@@ -219,6 +235,7 @@ public class Input extends HomeScreen {
     }
 
     public String deleteSet() {
+
         //add filter +/-  and comma
         if (!stringNumberInsert.equals("") && result == 0.0 && operator == 'n') {
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
@@ -232,7 +249,9 @@ public class Input extends HomeScreen {
             result = parseDouble(stringNumberInsert);
             //buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
             return stringNumberInsert;
-        } // quando ho il resto
+        }
+
+        // quando ho il resto
 
         //quando ho un operatore
 
@@ -240,10 +259,8 @@ public class Input extends HomeScreen {
 
         //quando ho la virgola
 
-
         return null;
     }
-
 
 //
 //        if (!textViewString.isEmpty() && result == null) {
@@ -276,17 +293,67 @@ public class Input extends HomeScreen {
 //        }
 
 
+    //    public void onClickPosNeg(View view) {
+////        String formatTextView = operations.getText().toString();
+////
+////        if (stringNumberInsert == null) {
+////        }
+////
+////        String formatString = "";
+////        if (formatTextView.equals("") || formatTextView.equals("+")) {
+////            formatString = "-";
+////            operations.setText(formatString);
+////        } else if (formatTextView.equals("-")) {
+////            formatString = "+";
+////            operations.setText(formatString);
+////        } else {
+//////            if (formatString.equals("-" + stringNumberInsert)) {
+//////                formatString = "" + stringNumberInsert;
+//////                operations.setText(formatString);
+//////            } else {
+//////                formatString = "-" + stringNumberInsert;
+//////                operations.setText(formatString);
+//////            }
+////        }
+////
+////        if (operator != null) {
+////
+////        }
+////
+////        if (result != null) {
+////            if (result > 0) {
+////                formatString = "-" + result;
+////                operations.setText(formatString);
+////                result = Double.parseDouble(formatString);
+////
+////            } else if (result < 0) {
+////                formatString = result.toString().replace("-", "+");
+////                operations.setText(formatString);
+////                result = Double.parseDouble(formatString);
+////            }
+////
+////        }
+////
+////
+//////        previousValue = Double.parseDouble(formatString + stringNumberInsert);
+////        //todo
+//    }
+
     public String commaSet() {
+
+        //if textview is empty
         if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0) {
             buildStringToValue = new StringBuilder();
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
             return stringNumberInsert.replace(".", ",");
         }
 
+        //if insert comma after operator
         if (operator != 'n') {
             return buildStringToValue.toString();
         }
 
+        //if insert comma after number after operator
         if (resultTemp != 0.0) {
             buildStringToValue = new StringBuilder();
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
@@ -295,7 +362,7 @@ public class Input extends HomeScreen {
             //todo
         }
 
-
+        //if insert comma after euqals
         if (result != 0.0) {
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(result)).append(".").toString();
             return stringNumberInsert.replace(".", ",");
@@ -303,4 +370,5 @@ public class Input extends HomeScreen {
 
         return null;
     }
+
 }

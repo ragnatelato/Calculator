@@ -52,53 +52,43 @@ public class HomeScreen extends AppCompatActivity {
     // ------------------------Insert Number------------------------------------------------------------------------------------------------
 
     public void onClickNine(View view) {
-        operations.append("9");
-        input.appendNumberForTextView(9);
+        operations.setText(input.appendNumberForTextView(9));
     }
 
     public void onClickEight(View view) {
-        operations.append("8");
-        input.appendNumberForTextView(8);
+        operations.setText(input.appendNumberForTextView(8));
     }
 
     public void onClickSeven(View view) {
-        operations.append("7");
-        input.appendNumberForTextView(7);
+        operations.setText(input.appendNumberForTextView(7));
     }
 
     public void onClickSix(View view) {
-        operations.append("6");
-        input.appendNumberForTextView(6);
+        operations.setText(input.appendNumberForTextView(6));
     }
 
     public void onClickFive(View view) {
-        operations.append("5");
-        input.appendNumberForTextView(5);
+        operations.setText(input.appendNumberForTextView(5));
     }
 
     public void onClickFour(View view) {
-        operations.append("4");
-        input.appendNumberForTextView(4);
+        operations.setText(input.appendNumberForTextView(4));
     }
 
     public void onClickThree(View view) {
-        operations.append("3");
-        input.appendNumberForTextView(3);
+        operations.setText(input.appendNumberForTextView(3));
     }
 
     public void onClickTwo(View view) {
-        operations.append("2");
-        input.appendNumberForTextView(2);
+        operations.setText(input.appendNumberForTextView(2));
     }
 
     public void onClickOne(View view) {
-        operations.append("1");
-        input.appendNumberForTextView(1);
+        operations.setText(input.appendNumberForTextView(1));
     }
 
     public void onClickZero(View view) {
-        operations.append("0");
-        input.appendNumberForTextView(0);
+        operations.setText(input.appendNumberForTextView(0));
     }
 
     // ------------------------Operators----------------------------------------------------------------------------------------------------
@@ -173,7 +163,6 @@ public class HomeScreen extends AppCompatActivity {
     public void onClickPosNeg(View view) {
         //todo
     }
-
 
     public void onClickComma(View view) {
         operations.setText(input.commaSet());
