@@ -161,16 +161,18 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickPosNeg(View view) {
-        //todo
+        operations.setText(input.posNegSet());
     }
 
     public void onClickComma(View view) {
         operations.setText(input.commaSet());
     }
 
-    //todo a fine programmazione implementare i "thread UI", x vedere se il programma si velocizza e non da piu il messaggio
+    ///////////////////////////////////////////
+    // a fine programmazione implementare i "thread UI", x vedere se il programma si velocizza e non da piu il messaggio
     // "skipped n frame"
     //sostituire con i miei annunci prima di pubblicare e fare 2 versioni in 2 branch separati,
     //la versione per il Playstore non avrà i click sull'autore
+    ///////////////////////////////////////////
 
 }

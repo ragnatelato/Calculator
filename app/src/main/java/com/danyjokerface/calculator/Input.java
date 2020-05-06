@@ -302,82 +302,29 @@ public class Input extends HomeScreen {
         return null;
     }
 
-//
-//        if (!textViewString.isEmpty() && result == null) {
-//
-//            operations.setText(textViewString.substring(0, textViewString.length() - 1));
-//            setOperation = textViewString.substring(0, textViewString.length() - 1);
-//            stringNumberInsert = setOperation;
-//        }
-//
-//        if (!stringNumberInsert.equals("") && result == null) {
-//
-//            operations.setText(textViewString.substring(0, textViewString.length() - 1));
-//            setOperation = textViewString.substring(0, textViewString.length() - 1);
-//            stringNumberInsert = setOperation;
-//        }
-//
-//        if (!textViewString.equals("")) {
-//            final boolean equals = textViewString.substring(0, textViewString.length() - 1).equals("");
-//            if (result != null && !equals) {
-//                operations.setText(textViewString.substring(0, textViewString.length() - 1));
-//                setOperation = textViewString.substring(0, textViewString.length() - 1);
-//                result = Double.parseDouble(setOperation);
-//            }
-//            if (equals) {
-//                operations.setText("");
-//                setOperation = "";
-//                result = null;
-//            }
+    public String posNegSet() {
+        //before number
+//        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0 && !stringNumberInsert.contains(",")) {
 //
 //        }
 
+        //if insert posneg after operator
+//        if (operator != 'n') {
+//
+//        }
 
-    //    public void onClickPosNeg(View view) {
-////        String formatTextView = operations.getText().toString();
-////
-////        if (stringNumberInsert == null) {
-////        }
-////
-////        String formatString = "";
-////        if (formatTextView.equals("") || formatTextView.equals("+")) {
-////            formatString = "-";
-////            operations.setText(formatString);
-////        } else if (formatTextView.equals("-")) {
-////            formatString = "+";
-////            operations.setText(formatString);
-////        } else {
-//////            if (formatString.equals("-" + stringNumberInsert)) {
-//////                formatString = "" + stringNumberInsert;
-//////                operations.setText(formatString);
-//////            } else {
-//////                formatString = "-" + stringNumberInsert;
-//////                operations.setText(formatString);
-//////            }
-////        }
-////
-////        if (operator != null) {
-////
-////        }
-////
-////        if (result != null) {
-////            if (result > 0) {
-////                formatString = "-" + result;
-////                operations.setText(formatString);
-////                result = Double.parseDouble(formatString);
-////
-////            } else if (result < 0) {
-////                formatString = result.toString().replace("-", "+");
-////                operations.setText(formatString);
-////                result = Double.parseDouble(formatString);
-////            }
-////
-////        }
-////
-////
-//////        previousValue = Double.parseDouble(formatString + stringNumberInsert);
-////        //todo
-//    }
+        //if posneg exist
+//        if (stringNumberInsert.contains(",")) {
+//
+//        }
+
+        //if insert posneg after number after operator
+//        if (resultTemp != 0.0) {
+//        }
+
+        return null;
+    }
+
 
     public String commaSet() {
 
@@ -401,14 +348,18 @@ public class Input extends HomeScreen {
         //if insert comma after number after operator
         if (resultTemp != 0.0) {
             buildStringToValue = new StringBuilder();
+
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
-            return stringToInsertOperations + stringNumberInsert.replace(".", ",");
+//            return stringNumberInsert.replace(".", ",");
+
+            return stringNumberInsert.replace(".", ",");
             //todo
         }
 
         //if insert comma after equals
         if (result != 0.0) {
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(result)).append(".").toString();
+            stringToInsertOperations = "";
             return stringNumberInsert.replace(".", ",");
         }
 
