@@ -14,6 +14,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+/**
+ * @author DanyJokerFace
+ * @version 1.0
+ */
 public class HomeScreen extends AppCompatActivity {
     //Object Class
     Input input;

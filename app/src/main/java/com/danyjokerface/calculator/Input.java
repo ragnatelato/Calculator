@@ -80,27 +80,40 @@ public class Input extends HomeScreen {
     // ------------------------Operators----------------------------------------------------------------------------------------------------
 
     public String insertOperator(char operator) {
+        //first operator
         if (Input.operator == 'n' && previousValue == 0.0 && result == 0.0 && resultTemp == 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
             insertFirstOperator(operator);
             stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
+
+            //if have a comma
+            if ((stringToInsertOperations).contains(".")) {
+                return stringToInsertOperations.replace(".", ",");
+            }
+
             return stringToInsertOperations;
-        } else if (resultTemp != 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
+        }
+        //more operator
+        else if (resultTemp != 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
             insertMoreOperator(operator);
             stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
             return stringToInsertOperations;
         }
 
+        //operator after equal
         if (result != 0.0 && !stringNumberInsert.contains(".")) {
             operatorAfterEqual(operator);
             stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
+
+        //change operator on the fly
         if (value == 0.0 && !stringNumberInsert.contains(".")) {
             changeOperatorOnTheFly(operator);
             stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
             return stringToInsertOperations;
         }
 
+        //comma logic
         if (stringNumberInsert.contains(".")) {
             operatorWhitComma(operator);
             stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
@@ -160,23 +173,31 @@ public class Input extends HomeScreen {
                 stringNumberInsert = "";
                 stringToInsertOperations = "";
                 operator = 'n';
-                // if il risultato ha una virgola
-                // =   return numberOfDecimal.format(result);
+
+                //if have a comma
+                if ((result.toString()).contains(".00")) {
+                    return (result.toString()).replace(".", ",");
+                }
+
+                // if not have
                 int resultToInt = result.intValue();
                 return Integer.toString(resultToInt);
-            } else {
+            }
+            //division/remainder logic for equal
+            else {
                 buildStringToValue = new StringBuilder();
                 result = resultTemp;
                 resultTemp = 0.0;
                 stringToInsertOperations = "";
                 stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(result)).toString();
+                String writeResult = stringToInsertOperations.replace(".", ",");
                 String writeRemainder = "\n" + remainderInsert + " " + numberOfDecimal.format(remainder);
                 remainder = 0.0;
                 resultTemp = 0.0;
                 value = 0.0;
                 stringNumberInsert = "";
                 operator = 'n';
-                return stringToInsertOperations + writeRemainder;
+                return writeResult + writeRemainder;
             }
 
         }
@@ -256,23 +277,30 @@ public class Input extends HomeScreen {
 
 
     public String commaSet() {
-        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0 || result != 0.0) {
+        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0) {
             buildStringToValue = new StringBuilder();
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
             return stringNumberInsert.replace(".", ",");
         }
 
-        if (resultTemp != 0.0) {
-            buildStringToValue = new StringBuilder();//delete
-//todo
-//            buildStringToValue = new StringBuilder();
-//            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert)) + ".").toString();
-//            String stringToView = stringNumberInsert.replace(".", ",");
-//            return stringToView;
-
-
-//            return stringToInsertOperations;
+        if (operator != 'n') {
+            return buildStringToValue.toString();
         }
+
+        if (resultTemp != 0.0) {
+            buildStringToValue = new StringBuilder();
+            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
+            return stringNumberInsert.replace(".", ",");
+
+            //todo
+        }
+
+
+        if (result != 0.0) {
+            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(result)).append(".").toString();
+            return stringNumberInsert.replace(".", ",");
+        }
+
         return null;
     }
 }
