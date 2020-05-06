@@ -83,6 +83,12 @@ public class Input extends HomeScreen {
             return insertOnTextView;
         }
 
+        // if have a comma on number
+        if ((stringNumberInsert).contains(".")) {
+            stringNumberInsert = stringNumberInsert.replace(".", ",");
+            return stringNumberInsert;
+        }
+
         // other cases
         else {
             return stringNumberInsert;
@@ -236,13 +242,14 @@ public class Input extends HomeScreen {
 
     public String deleteSet() {
 
-        //add filter +/-  and comma
+        // delete on a number
         if (!stringNumberInsert.equals("") && result == 0.0 && operator == 'n') {
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
             buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
             return stringNumberInsert;
         }
 
+        // delete on a result
         if (result != 0.0) {
             String resultToString = Double.toString(result);
             stringNumberInsert = resultToString.substring(0, resultToString.length() - 1);
@@ -341,8 +348,8 @@ public class Input extends HomeScreen {
 
     public String commaSet() {
 
-        //if textview is empty
-        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0) {
+        //after number
+        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0 && !stringNumberInsert.contains(".")) {
             buildStringToValue = new StringBuilder();
             stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
             return stringNumberInsert.replace(".", ",");
@@ -351,6 +358,11 @@ public class Input extends HomeScreen {
         //if insert comma after operator
         if (operator != 'n') {
             return buildStringToValue.toString();
+        }
+
+        //if comma exist
+        if (stringNumberInsert.contains(".")) {
+            return stringNumberInsert;
         }
 
         //if insert comma after number after operator
@@ -368,6 +380,7 @@ public class Input extends HomeScreen {
             return stringNumberInsert.replace(".", ",");
         }
 
+        //if textview is empty
         return null;
     }
 
