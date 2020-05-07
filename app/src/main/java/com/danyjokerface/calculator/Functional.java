@@ -6,6 +6,7 @@ public class Functional extends HomeScreen {
     public void setToolbar() {
     }
 
+    //greetings joke
     public String setTextViewToolbar(String greeting, String appname) {
         if (!checkclick) {
             checkclick = true;

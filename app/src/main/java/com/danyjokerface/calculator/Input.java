@@ -22,13 +22,6 @@ public class Input extends HomeScreen {
     // ------------------------Insert Numbers-----------------------------------------------------------------------------------------------
 
     public String appendNumberForTextView(int number_to_insert) {
-        String insertOnTextView = "";
-
-        // delete textview before insert operator and second numbers
-//        if (!stringToInsertOperations.equals("")) {
-//            insertOnTextView = buildStringToValue.append(number_to_insert).toString();
-//            buildStringToValue = new StringBuilder();
-//        }
 
         // stringNumberInsert storage value of button numeric pressed
         stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
@@ -63,8 +56,6 @@ public class Input extends HomeScreen {
                     break;
             }
 
-            operator = 'n';
-            previousValue = 0.0;
             value = 0.0;
         }
 
@@ -84,26 +75,26 @@ public class Input extends HomeScreen {
         }
 
         //if insert number after press operator
-        if (!insertOnTextView.equals("")) {
+        if (!stringToInsertOperations.equals("")) {
 
-            //if i have a comma
-            if (insertOnTextView.contains(".")) {
-                insertOnTextView = insertOnTextView.replace(".", ",");
-                return insertOnTextView;
-            }
+//            //if i have a comma
+//            if (insertOnTextView.contains(".")) {
+//                insertOnTextView = insertOnTextView.replace(".", ",");
+//                return insertOnTextView;
+//            }
 
-            return insertOnTextView;
+            return stringToInsertOperations + stringNumberInsert;
         }
 
-        // if have a comma on number
-        if ((stringNumberInsert).contains(".")) {
-            stringNumberInsert = stringNumberInsert.replace(".", ",");
-            return stringNumberInsert;
-        }
+//        // if have a comma on number
+//        if ((stringNumberInsert).contains(".")) {
+//            stringNumberInsert = stringNumberInsert.replace(".", ",");
+//            return stringNumberInsert;
+//        }
 
         // other cases
         else {
-            return stringToInsertOperations + stringNumberInsert;
+            return stringNumberInsert;
         }
 
     }
@@ -121,8 +112,7 @@ public class Input extends HomeScreen {
 //                return (previousValue.toString()).replace(".", ",") + operator;
 //            }
 
-            stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
-            buildStringToValue = new StringBuilder();
+            stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
             return stringToInsertOperations;
         }
 
@@ -130,48 +120,48 @@ public class Input extends HomeScreen {
         else if (resultTemp != 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
             insertMoreOperator(operator);
 
-            // if i have a comma
-            if ((previousValue.toString()).contains(".") && !(previousValue.toString()).contains(".0")) {
-                return (previousValue.toString()).replace(".", ",") + operator;
-            }
+//            // if i have a comma
+//            if ((previousValue.toString()).contains(".") && !(previousValue.toString()).contains(".0")) {
+//                return (previousValue.toString()).replace(".", ",") + operator;
+//            }
 
-            stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
+            stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
             return stringToInsertOperations;
         }
 
         //operator after equal
         if (result != 0.0) {
 
-            // if i have comma
-            if (stringNumberInsert.contains(".")) {
-                return stringNumberInsert.replace(".", ",") + operator;
-            }
+//            // if i have comma
+//            if (stringNumberInsert.contains(".")) {
+//                return stringNumberInsert.replace(".", ",") + operator;
+//            }
 
             operatorAfterEqual(operator);
-            stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
-            return stringToInsertOperations.replace(".", ",");
+            stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
+            return stringToInsertOperations;
         }
 
         //change operator on the fly
         if (value == 0.0 && !stringNumberInsert.contains(",")) {
             changeOperatorOnTheFly(operator);
 
-            // if i have a comma
-            if ((previousValue.toString()).contains(".") && !(previousValue.toString()).contains(".0")) {
-                return (previousValue.toString()).replace(".", ",") + operator;
-            }
+//            // if i have a comma
+//            if ((previousValue.toString()).contains(".") && !(previousValue.toString()).contains(".0")) {
+//                return (previousValue.toString()).replace(".", ",") + operator;
+//            }
 
-            stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
+            stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
             return stringToInsertOperations;
         }
 
-        //comma logic
-        if (stringNumberInsert.contains(",")) {
-            operatorWhitComma(operator);
-            stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
-            stringToInsertOperations = stringToInsertOperations.replace(".", ",");
-            return stringToInsertOperations;
-        }
+//        //comma logic
+//        if (stringNumberInsert.contains(",")) {
+//            operatorWhitComma(operator);
+//            stringToInsertOperations = buildStringToValue.append(numberOfDecimal.format(previousValue)).append(operator).toString();
+//            stringToInsertOperations = stringToInsertOperations.replace(".", ",");
+//            return stringToInsertOperations;
+//        }
 
         return null;
     }
@@ -207,13 +197,13 @@ public class Input extends HomeScreen {
         Input.operator = operator;
     }
 
-    public void operatorWhitComma(char operator) {
-        stringNumberInsert = stringNumberInsert.replace(",", ".");
-        previousValue = Double.parseDouble(stringNumberInsert);
-        stringNumberInsert = "";
-        buildStringToValue = new StringBuilder();
-        Input.operator = operator;
-    }
+//    public void operatorWhitComma(char operator) {
+//        stringNumberInsert = stringNumberInsert.replace(",", ".");
+//        previousValue = Double.parseDouble(stringNumberInsert);
+//        stringNumberInsert = "";
+//        buildStringToValue = new StringBuilder();
+//        Input.operator = operator;
+//    }
 
     // ------------------------Equal--------------------------------------------------------------------------------------------------------
 
@@ -222,16 +212,17 @@ public class Input extends HomeScreen {
             if (remainder == 0.0) {
                 result = resultTemp;
                 resultTemp = 0.0;
+                previousValue = 0.0;
                 value = 0.0;
                 buildStringToValue = new StringBuilder();
                 stringNumberInsert = "";
                 stringToInsertOperations = "";
                 operator = 'n';
 
-                //if have a comma
-                if ((result.toString()).contains(".") && !(result.toString()).contains(".0")) {
-                    return (result.toString()).replace(".", ",");
-                }
+//                //if have a comma
+//                if ((result.toString()).contains(".") && !(result.toString()).contains(".0")) {
+//                    return (result.toString()).replace(".", ",");
+//                }
 
                 // if not have
                 int resultToInt = result.intValue();
@@ -249,12 +240,17 @@ public class Input extends HomeScreen {
                 String writeRemainder = "\n" + remainderInsert + " " + numberOfDecimal.format(remainder);
                 remainder = 0.0;
                 resultTemp = 0.0;
+                previousValue = 0.0;
                 value = 0.0;
                 stringNumberInsert = "";
                 operator = 'n';
                 return writeResult + writeRemainder;
             }
 
+        } else if (!stringNumberInsert.equals("")) {
+            return stringNumberInsert;
+        } else if (result != 0.0) {
+            return numberOfDecimal.format(result);
         }
 
         return null;
@@ -331,42 +327,42 @@ public class Input extends HomeScreen {
 
     public String commaSet() {
 
-        //after number
-        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0 && !stringNumberInsert.contains(",")) {
-            buildStringToValue = new StringBuilder();
-            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
-            return stringNumberInsert.replace(".", ",");
-        }
-
-        //if insert comma after operator
-        if (operator != 'n') {
-            return stringToInsertOperations;
-        }
-
-        //if comma exist
-        if (stringNumberInsert.contains(",")) {
-            return stringNumberInsert;
-        }
-
-        //if insert comma after number after operator
-        if (resultTemp != 0.0) {
-            buildStringToValue = new StringBuilder();
-
-            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
+//        //after number
+//        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0 && !stringNumberInsert.contains(",")) {
+//            buildStringToValue = new StringBuilder();
+//            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
 //            return stringNumberInsert.replace(".", ",");
-
-            return stringNumberInsert.replace(".", ",");
-            //todo
-        }
-
-        //if insert comma after equals
-        if (result != 0.0) {
-            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(result)).append(".").toString();
-            stringToInsertOperations = "";
-            return stringNumberInsert.replace(".", ",");
-        }
-
-        //if textview is empty
+//        }
+//
+//        //if insert comma after operator
+//        if (operator != 'n') {
+//            return stringToInsertOperations;
+//        }
+//
+//        //if comma exist
+//        if (stringNumberInsert.contains(",")) {
+//            return stringNumberInsert;
+//        }
+//
+//        //if insert comma after number after operator
+//        if (resultTemp != 0.0) {
+//            buildStringToValue = new StringBuilder();
+//
+//            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(parseDouble(stringNumberInsert))).append(".").toString();
+////            return stringNumberInsert.replace(".", ",");
+//
+//            return stringNumberInsert.replace(".", ",");
+//            //todo
+//        }
+//
+//        //if insert comma after equals
+//        if (result != 0.0) {
+//            stringNumberInsert = buildStringToValue.append(numberOfDecimal.format(result)).append(".").toString();
+//            stringToInsertOperations = "";
+//            return stringNumberInsert.replace(".", ",");
+//        }
+//
+//        //if textview is empty
         return null;
     }
 

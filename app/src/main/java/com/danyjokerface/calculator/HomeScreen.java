@@ -32,6 +32,7 @@ public class HomeScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // initialize object
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         input = new Input();
@@ -42,6 +43,7 @@ public class HomeScreen extends AppCompatActivity {
         fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         author.startAnimation(fade_in);
 
+        //ads
         MobileAds.initialize(this, initializationStatus -> {
         });
         AdView adView = findViewById(R.id.adView);
