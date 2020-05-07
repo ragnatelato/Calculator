@@ -178,7 +178,6 @@ public class Input extends HomeScreen {
                 }
                 // if not have
                 else {
-//                int resultToInt = result.intValue();
                     return Integer.toString(resultToInt);
                 }
 
@@ -301,6 +300,7 @@ public class Input extends HomeScreen {
             return Integer.toString(resultToInt);
         }
 
+        //if have a more numbers whit comma
         if (!stringToInsertOperations.equals("") && !stringNumberInsert.equals("")) {
             stringNumberInsert = stringNumberInsert + ".";
             numberCommaInsert = Double.parseDouble(stringNumberInsert);
