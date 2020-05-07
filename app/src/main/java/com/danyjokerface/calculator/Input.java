@@ -76,7 +76,7 @@ public class Input extends HomeScreen {
 
         //if insert number after press operator
         if (!stringToInsertOperations.equals("")) {
-            return stringToInsertOperations + stringNumberInsert.replace(".", ",");
+            return stringToInsertOperations.replace(".", ",") + stringNumberInsert.replace(".", ",");
         }
 
         // if have a comma on number
@@ -99,7 +99,7 @@ public class Input extends HomeScreen {
         if (Input.operator == 'n' && previousValue == 0.0 && result == 0.0 && resultTemp == 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(",")) {
             insertFirstOperator(operator);
             stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
 
         //more operator
@@ -157,14 +157,6 @@ public class Input extends HomeScreen {
         Input.operator = operator;
     }
 
-//    public void operatorWhitComma(char operator) {
-//        stringNumberInsert = stringNumberInsert.replace(",", ".");
-//        previousValue = Double.parseDouble(stringNumberInsert);
-//        stringNumberInsert = "";
-//        buildStringToValue = new StringBuilder();
-//        Input.operator = operator;
-//    }
-
     // ------------------------Equal--------------------------------------------------------------------------------------------------------
 
     public String equal(String remainderInsert) {
@@ -179,14 +171,17 @@ public class Input extends HomeScreen {
                 stringToInsertOperations = "";
                 operator = 'n';
 
-//                //if have a comma
-//                if ((result.toString()).contains(".") && !(result.toString()).contains(".0")) {
-//                    return (result.toString()).replace(".", ",");
-//                }
-
-                // if not have
                 int resultToInt = result.intValue();
-                return Integer.toString(resultToInt);
+                //if have a comma
+                if (resultToInt != result) {
+                    return (result.toString()).replace(".", ",");
+                }
+                // if not have
+                else {
+//                int resultToInt = result.intValue();
+                    return Integer.toString(resultToInt);
+                }
+
             }
 
             //division/remainder logic for equal
@@ -304,6 +299,12 @@ public class Input extends HomeScreen {
         if (result != 0.0) {
             int resultToInt = result.intValue();
             return Integer.toString(resultToInt);
+        }
+
+        if (!stringToInsertOperations.equals("") && !stringNumberInsert.equals("")) {
+            stringNumberInsert = stringNumberInsert + ".";
+            numberCommaInsert = Double.parseDouble(stringNumberInsert);
+            return stringToInsertOperations.replace(".", ",") + stringNumberInsert.replace(".", ",");
         }
 
         //if textview is empty
