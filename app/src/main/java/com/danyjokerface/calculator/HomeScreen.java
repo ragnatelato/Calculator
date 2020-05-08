@@ -173,10 +173,9 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     ///////////////////////////////////////////
-    // a fine programmazione implementare i "thread UI", x vedere se il programma si velocizza e non da piu il messaggio
-    // "skipped n frame"
-    //sostituire con i miei annunci prima di pubblicare e fare 2 versioni in 2 branch separati,
-    //la versione per il Playstore non avrà i click sull'autore
+    // 1) a fine programmazione implementare i "thread UI", x vedere se il programma si velocizza e non da piu il messaggio "skipped frame"
+    // 2) sostituire con i miei annunci prima di pubblicare
+    // 3) fare 2 versioni in 2 branch separati, la versione per il Playstore non avrà i click sull'autore
     ///////////////////////////////////////////
 
 }
