@@ -26,6 +26,16 @@ public class Input extends HomeScreen {
 
         //if have a comma
         if (numberCommaInsert != 0.0) {
+
+            //if number whit comma start whit 0
+//            if (numberCommaInsert.toString().startsWith("0.")) {
+//                int resultToInt = result.intValue();
+//                //if have a comma
+//                if (resultToInt != result) {
+//                    return (result.toString()).replace(".", ",");
+//                }
+//            }
+
             stringNumberInsert = buildStringToValue.append(".").append(numberOfDecimal.format(number_to_insert)).toString();
             numberCommaInsert = 0.0;
         } else {
@@ -113,14 +123,14 @@ public class Input extends HomeScreen {
         if (result != 0.0) {
             operatorAfterEqual(operator);
             stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
 
         //change operator on the fly
         if (value == 0.0 && !stringNumberInsert.contains(",")) {
             changeOperatorOnTheFly(operator);
             stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
 
         return null;
@@ -232,23 +242,35 @@ public class Input extends HomeScreen {
         if (!stringNumberInsert.equals("") && result == 0.0 && operator == 'n') {
             stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
             buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
-            return stringNumberInsert;
+            return stringNumberInsert.replace(".", ",");
+        }
+
+        //quando ho la virgola
+        if (stringNumberInsert.contains(".#")) {
+            stringNumberInsert = stringNumberInsert.substring(0, stringNumberInsert.length() - 1);
+            buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
+            return stringNumberInsert.replace(".", ",");
+        }
+
+        //quando ho un operatore
+        if (operator != 'n') {
+            return stringToInsertOperations;
         }
 
         // delete on a result
         if (result != 0.0) {
-            String resultToString = Double.toString(result);
-            stringNumberInsert = resultToString.substring(0, resultToString.length() - 1);
-            result = parseDouble(stringNumberInsert);
-            //buildStringToValue.deleteCharAt(buildStringToValue.length() - 1);
-            return stringNumberInsert;
+
+            int resultToInt = result.intValue();
+            //if don't have a comma
+            if (result.toString().contains(".0")) {
+                return Integer.toString(resultToInt);
+            }
+            // if have
+            else {
+                return result.toString().replace(".", ",");
+            }
+
         }
-
-        //quando ho un operatore
-
-        // quando ho il simbolo +/-
-
-        //quando ho la virgola
 
         return null;
     }
@@ -269,6 +291,8 @@ public class Input extends HomeScreen {
 //        if (stringNumberInsert.contains(",")) {
 //
 //        }
+
+        //todo
 
 
         return null;
