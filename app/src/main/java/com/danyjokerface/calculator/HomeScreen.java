@@ -135,7 +135,7 @@ public class HomeScreen extends AppCompatActivity {
 
     //after 5 click go to first easter egg class
     //disable on PLAYSTORE version
-    public void onClickAuthor(View view) {
+//    public void onClickAuthor(View view) {
 //        Toast.makeText(this, getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
 //
 //        if (count == 5) {
@@ -145,7 +145,7 @@ public class HomeScreen extends AppCompatActivity {
 //        }
 //
 //        count++;
-    }
+//    }
 
     public void onClickOperations(View view) {
         functional.setOperations();
