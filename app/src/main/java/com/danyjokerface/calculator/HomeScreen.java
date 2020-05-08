@@ -2,8 +2,6 @@ package com.danyjokerface.calculator;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +22,10 @@ public class HomeScreen extends AppCompatActivity {
     //Views
     TextView operations;
     TextView greetingsToolbarView;
-    TextView author;
-    Animation fade_in;
+//    TextView author;
+//    Animation fade_in;
     //Variables
-    int count = 0;
+//    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +36,9 @@ public class HomeScreen extends AppCompatActivity {
         functional = new Functional();
         operations = findViewById(R.id.operations);
         greetingsToolbarView = findViewById(R.id.textViewToolbar);
-        author = findViewById(R.id.author);
-        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-        author.startAnimation(fade_in);
+//        author = findViewById(R.id.author);
+//        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+//        author.startAnimation(fade_in);
 
         //ads
         MobileAds.initialize(this, initializationStatus -> {
