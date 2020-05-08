@@ -1,12 +1,10 @@
 package com.danyjokerface.calculator;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -140,15 +138,15 @@ public class HomeScreen extends AppCompatActivity {
     //after 5 click go to first easter egg class
     //disable on PLAYSTORE version
     public void onClickAuthor(View view) {
-        Toast.makeText(this, getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
-
-        if (count == 5) {
-            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
-            startActivity(intent);
-            count = 0;
-        }
-
-        count++;
+//        Toast.makeText(this, getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
+//
+//        if (count == 5) {
+//            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
+//            startActivity(intent);
+//            count = 0;
+//        }
+//
+//        count++;
     }
 
     public void onClickOperations(View view) {
