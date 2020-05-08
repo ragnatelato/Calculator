@@ -18,6 +18,7 @@ import com.google.android.gms.ads.MobileAds;
  * @author DanyJokerFace
  * @version 1.0
  */
+
 public class HomeScreen extends AppCompatActivity {
     //Object Class
     Input input;
@@ -49,6 +50,7 @@ public class HomeScreen extends AppCompatActivity {
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+
     }
 
     // ------------------------Insert Number------------------------------------------------------------------------------------------------

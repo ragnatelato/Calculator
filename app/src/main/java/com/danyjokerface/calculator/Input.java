@@ -26,21 +26,18 @@ public class Input extends HomeScreen {
 
         //if have a comma
         if (numberCommaInsert != 0.0) {
-
-            //if number whit comma start whit 0
-//            if (numberCommaInsert.toString().startsWith("0.")) {
-//                int resultToInt = result.intValue();
-//                //if have a comma
-//                if (resultToInt != result) {
-//                    return (result.toString()).replace(".", ",");
-//                }
-//            }
-
             stringNumberInsert = buildStringToValue.append(".").append(numberOfDecimal.format(number_to_insert)).toString();
             numberCommaInsert = 0.0;
         } else {
-            // stringNumberInsert storage value of button numeric pressed
-            stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+
+            //if start whit 0.
+            if (stringNumberInsert.startsWith("0.")) {
+                stringNumberInsert = buildStringToValue.append(".").append(numberOfDecimal.format(number_to_insert)).toString();
+            } else {
+                // stringNumberInsert storage value of button numeric pressed
+                stringNumberInsert = buildStringToValue.append(number_to_insert).toString();
+            }
+
         }
 
         // execute operations
@@ -254,7 +251,7 @@ public class Input extends HomeScreen {
 
         //quando ho un operatore
         if (operator != 'n') {
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
 
         // delete on a result
@@ -276,28 +273,91 @@ public class Input extends HomeScreen {
     }
 
     public String posNegSet() {
+        double posneg;
 
         //before number
-//        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0 && !stringNumberInsert.contains(",")) {
-//
-//        }
+        if (!stringNumberInsert.equals("") && operator == 'n' && resultTemp == 0.0) {
+
+            //switch betwen pos/neg simbol
+            if (Double.parseDouble(stringNumberInsert) < 0.0) {
+                posneg = (Double.parseDouble(stringNumberInsert));
+                posneg = Math.abs(posneg);
+                stringNumberInsert = Double.toString(posneg);
+
+                //if not comma
+                if (stringNumberInsert.contains(".0")) {
+                    return stringNumberInsert.replace(".0", "");
+                }
+
+                return stringNumberInsert.replace(".", ",");
+            } else {
+                posneg = (Double.parseDouble(stringNumberInsert));
+                posneg = -posneg;
+                stringNumberInsert = Double.toString(posneg);
+
+                //if not comma
+                if (stringNumberInsert.contains(".0")) {
+                    return stringNumberInsert.replace(".0", "");
+                }
+
+                return stringNumberInsert.replace(".", ",");
+            }
+
+        }
+
+        // on a result
+        if (result != 0.0) {
+
+            int resultToInt = result.intValue();
+            //if don't have a comma
+            if (result.toString().contains(".0")) {
+                return Integer.toString(resultToInt);
+            }
+            // if have
+            else {
+                return result.toString().replace(".", ",");
+            }
+
+        }
 
         //if insert posneg after operator
-//        if (operator != 'n') {
-//
-//        }
+        if (operator != 'n') {
 
-        //if posneg exist
-//        if (stringNumberInsert.contains(",")) {
-//
-//        }
+            //append posneg
+            if (!stringNumberInsert.equals("")) {
 
-        //todo
+                //switch betwen pos/neg simbol
+                if (Double.parseDouble(stringNumberInsert) < 0.0) {
+                    posneg = (Double.parseDouble(stringNumberInsert));
+                    posneg = Math.abs(posneg);
+                    stringNumberInsert = Double.toString(posneg);
 
+                    //if not comma
+                    if (stringNumberInsert.contains(".0")) {
+                        return stringToInsertOperations + stringNumberInsert.replace(".0", "");
+                    }
+
+                    return stringToInsertOperations + stringNumberInsert.replace(".", ",");
+                } else {
+                    posneg = (Double.parseDouble(stringNumberInsert));
+                    posneg = -posneg;
+                    stringNumberInsert = Double.toString(posneg);
+
+                    //if not comma
+                    if (stringNumberInsert.contains(".0")) {
+                        return stringToInsertOperations + stringNumberInsert.replace(".0", "");
+                    }
+
+                    return stringToInsertOperations + stringNumberInsert.replace(".", ",");
+                }
+
+            }
+
+            return stringToInsertOperations.replace(".", ",");
+        }
 
         return null;
     }
-
 
     public String commaSet() {
 
