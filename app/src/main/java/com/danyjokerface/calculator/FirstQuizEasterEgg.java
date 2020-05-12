@@ -12,9 +12,4 @@ public class FirstQuizEasterEgg extends AppCompatActivity {
         setContentView(R.layout.activity_first_quiz_easter_egg);
     }
 
-    @Override
-    protected void onResume() {
-        //TODO mettere condizione se si inserisce la mia data di nascita
-        super.onResume();
-    }
 }

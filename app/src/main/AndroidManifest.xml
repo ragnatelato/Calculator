@@ -11,6 +11,7 @@
             android:icon="@mipmap/calculator_icon"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/calculator_icon_round"
+            android:supportsRtl="false"
             android:theme="@style/AppThemeDayNightNoActionBar"
             tools:ignore="AllowBackup">
 
