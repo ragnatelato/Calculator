@@ -9,8 +9,8 @@
 
     <Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:background="#146DD1"
             android:onClick="onClickToolbar"
             app:layout_constraintBottom_toTopOf="@+id/operations"
@@ -27,7 +27,7 @@
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
                 android:textColor="#FFFFFF"
-                android:textSize="21sp" />
+                android:textSize="26sp" />
 
     </Toolbar>
 
@@ -50,9 +50,8 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             android:layout_marginEnd="10dp"
-            android:height="120sp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
             android:onClick="onClickOperations"
@@ -100,7 +99,7 @@
                 android:onClick="onClickPercentage"
                 android:text="%"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="25sp"
                 tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
@@ -111,7 +110,7 @@
                 android:onClick="onClickDivision"
                 android:text="÷"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="31sp"
                 tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
@@ -215,7 +214,7 @@
                 android:onClick="onClickSubtraction"
                 android:text="-"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="35sp"
                 tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
@@ -267,7 +266,7 @@
                 android:onClick="onClickSum"
                 android:text="+"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="29sp"
                 tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
@@ -307,8 +306,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onClickComma"
+                android:paddingBottom="26dp"
                 android:text=","
-                android:textSize="21sp"
+                android:textSize="28sp"
                 tools:ignore="ButtonStyle,SpUsage" />
 
         <Button

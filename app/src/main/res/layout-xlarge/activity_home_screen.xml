@@ -27,7 +27,7 @@
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
     </Toolbar>
 
@@ -50,7 +50,7 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="110dp"
             android:layout_marginEnd="10dp"
             android:maxLines="2"
             android:onClick="onClickOperations"
@@ -98,7 +98,7 @@
                 android:onClick="onClickPercentage"
                 android:text="%"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 tools:ignore="ButtonStyle" />
 
         <Button
@@ -109,7 +109,7 @@
                 android:onClick="onClickDivision"
                 android:text="÷"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="23sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -161,7 +161,7 @@
                 android:onClick="onClickMultiplication"
                 android:text="X"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="16sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -213,7 +213,7 @@
                 android:onClick="onClickSubtraction"
                 android:text="-"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="25sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -305,8 +305,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onClickComma"
+                android:paddingBottom="23dp"
                 android:text=","
-                android:textSize="21sp"
+                android:textSize="23sp"
                 tools:ignore="ButtonStyle" />
 
         <Button
