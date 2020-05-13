@@ -7,13 +7,12 @@
         android:layout_height="match_parent"
         tools:context=".HomeScreen">
 
-    <androidx.appcompat.widget.Toolbar
+    <Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:background="#146DD1"
             android:onClick="onClickToolbar"
-            android:title="@string/app_name"
             app:layout_constraintBottom_toTopOf="@+id/operations"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,20 +22,14 @@
         <TextView
                 android:id="@+id/textViewToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="7sp"
-                android:background="#146DD1"
-                android:gravity="center|center_horizontal"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_vertical|center_horizontal"
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/author"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="21sp" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </Toolbar>
 
     <!--    <TextView-->
     <!--            android:id="@+id/author"-->
@@ -57,9 +50,9 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:gravity="center_vertical|end"
+            android:height="120sp"
             android:maxLines="2"
             android:onClick="onClickOperations"
             android:textSize="55sp"
@@ -73,8 +66,6 @@
             android:id="@+id/linearOperationRow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/linearHighestNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,10 +78,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickReset"
                 android:text="C"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                app:autoSizeTextType="none"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_ic_input_delete"
@@ -99,9 +88,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_remainder"
@@ -110,10 +98,9 @@
                 android:layout_weight="1"
                 android:onClick="onClickPercentage"
                 android:text="%"
-                android:textAlignment="center"
                 android:textColor="#039BE5"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_division"
@@ -122,10 +109,9 @@
                 android:layout_weight="1"
                 android:onClick="onClickDivision"
                 android:text="÷"
-                android:textAlignment="center"
                 android:textColor="#039BE5"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
 
@@ -133,8 +119,6 @@
             android:id="@+id/linearHighestNumberRow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/linearHighNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,9 +131,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickSeven"
                 android:text="7"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_eight"
@@ -158,9 +141,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickEight"
                 android:text="8"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_nine"
@@ -169,9 +151,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickNine"
                 android:text="9"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_multi"
@@ -180,10 +161,9 @@
                 android:layout_weight="1"
                 android:onClick="onClickMultiplication"
                 android:text="X"
-                android:textAlignment="center"
                 android:textColor="#039BE5"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
 
@@ -191,8 +171,6 @@
             android:id="@+id/linearHighNumberRow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/linearMiddleNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,9 +183,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickFour"
                 android:text="4"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_five"
@@ -216,9 +193,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickFive"
                 android:text="5"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_six"
@@ -227,9 +203,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickSix"
                 android:text="6"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_sub"
@@ -238,10 +213,9 @@
                 android:layout_weight="1"
                 android:onClick="onClickSubtraction"
                 android:text="-"
-                android:textAlignment="center"
                 android:textColor="#039BE5"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
 
@@ -249,8 +223,6 @@
             android:id="@+id/linearMiddleNumberRow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/linearLowerNumberRor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -263,9 +235,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickOne"
                 android:text="1"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_two"
@@ -274,9 +245,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickTwo"
                 android:text="2"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_three"
@@ -285,9 +255,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickThree"
                 android:text="3"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_sum"
@@ -296,10 +265,9 @@
                 android:layout_weight="1"
                 android:onClick="onClickSum"
                 android:text="+"
-                android:textAlignment="center"
                 android:textColor="#039BE5"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
     </LinearLayout>
 
@@ -307,8 +275,6 @@
             android:id="@+id/linearLowerNumberRor"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -321,9 +287,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickPosNeg"
                 android:text="+/-"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_zero"
@@ -332,9 +297,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickZero"
                 android:text="0"
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_comma"
@@ -343,9 +307,8 @@
                 android:layout_weight="1"
                 android:onClick="onClickComma"
                 android:text=","
-                android:textAlignment="center"
-                android:textSize="27sp"
-                tools:ignore="ButtonStyle" />
+                android:textSize="21sp"
+                tools:ignore="ButtonStyle,SpUsage" />
 
         <Button
                 android:id="@+id/button_equal"
@@ -355,8 +318,7 @@
                 android:backgroundTint="#00E5FF"
                 android:onClick="onClickEqual"
                 android:text="="
-                android:textAlignment="center"
-                android:textSize="27sp"
+                android:textSize="21sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -364,18 +326,15 @@
     <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
-            app:adUnitId="ca-app-pub-9470422104309293/8105300395"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLowerNumberRor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <!--mi ads id (DanyJokerFace)-->
         <!--app:adUnitId="ca-app-pub-9470422104309293/8105300395"-->

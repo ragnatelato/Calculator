@@ -102,7 +102,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickDivision(View view) {
-        operations.setText(input.insertOperator('/'));
+        operations.setText(input.insertOperator('÷'));
     }
 
     public void onClickMultiplication(View view) {

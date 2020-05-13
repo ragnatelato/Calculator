@@ -48,7 +48,7 @@ public class Input extends HomeScreen {
                     resultTemp = (previousValue * value) / 100;
                     break;
 
-                case ('/'):
+                case ('÷'):
                     value = parseDouble(stringNumberInsert);
                     resultTemp = previousValue / value;
                     remainder = previousValue % value;
