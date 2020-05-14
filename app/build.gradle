@@ -8,8 +8,8 @@ android {
         applicationId "com.danyjokerface.calculator"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 1011
-        versionName "1.0.11"
+        versionCode 1012
+        versionName "1.0.10 (bis)"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -19,6 +19,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
         }
     }
     compileOptions {
