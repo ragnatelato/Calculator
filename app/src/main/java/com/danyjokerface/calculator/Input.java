@@ -110,10 +110,10 @@ public class Input extends HomeScreen {
         }
 
         //more operator
-        else if (resultTemp != 0.0 && !stringNumberInsert.equals("") && !stringNumberInsert.contains(".")) {
+        else if (resultTemp != 0.0 && !stringNumberInsert.equals("")) {
             insertMoreOperator(operator);
             stringToInsertOperations = numberOfDecimal.format(previousValue) + operator;
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
 
         //operator after equal

@@ -27,7 +27,7 @@
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="19sp" />
 
     </Toolbar>
 
@@ -50,12 +50,12 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_height="200dp"
             android:layout_marginEnd="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
             android:onClick="onClickOperations"
-            android:textSize="55sp"
+            android:textSize="75sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +110,7 @@
                 android:onClick="onClickDivision"
                 android:text="÷"
                 android:textColor="#039BE5"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -162,7 +162,7 @@
                 android:onClick="onClickMultiplication"
                 android:text="X"
                 android:textColor="#039BE5"
-                android:textSize="21sp"
+                android:textSize="19sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -214,7 +214,7 @@
                 android:onClick="onClickSubtraction"
                 android:text="-"
                 android:textColor="#039BE5"
-                android:textSize="39sp"
+                android:textSize="35sp"
                 tools:ignore="ButtonStyle" />
 
     </LinearLayout>
@@ -329,7 +329,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
-            app:adUnitId="ca-app-pub-9470422104309293/8105300395"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

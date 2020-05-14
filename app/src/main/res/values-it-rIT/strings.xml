@@ -3,7 +3,7 @@
     <string name="app_name">Calcolatrice</string>
     <string name="ic_input_delete">Can</string>
     <string name="click_me">Click per aprire la Calcolatrice</string>
-    <string name="Remainder">Il resto è: </string>
+    <string name="Remainder">Resto:</string>
     <string name="Greeting">Ciao da DanyJokerFace </string>
     <string name="remaining_click">Ti mancano ancora </string>
 </resources>

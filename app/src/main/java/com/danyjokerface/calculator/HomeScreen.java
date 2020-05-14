@@ -42,11 +42,7 @@ public class HomeScreen extends AppCompatActivity {
 
         //ads
         MobileAds.initialize(this, initializationStatus -> {
-            AdView adView = findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
         });
-
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
