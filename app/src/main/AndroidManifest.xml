@@ -34,7 +34,6 @@
                     android:resource="@xml/calculator_widget_info" />
         </receiver>
 
-        <activity android:name=".FirstQuizEasterEgg" />
         <activity
                 android:name=".HomeScreen"
                 android:label="@string/app_name"

@@ -2,6 +2,8 @@ package com.danyjokerface.calculator;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,10 +24,7 @@ public class HomeScreen extends AppCompatActivity {
     //Views
     TextView operations;
     TextView greetingsToolbarView;
-//    TextView author;
-//    Animation fade_in;
-    //Variables
-//    int count = 0;
+    Animation fade_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,8 @@ public class HomeScreen extends AppCompatActivity {
         functional = new Functional();
         operations = findViewById(R.id.operations);
         greetingsToolbarView = findViewById(R.id.textViewToolbar);
-//        author = findViewById(R.id.author);
-//        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-//        author.startAnimation(fade_in);
+        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        greetingsToolbarView.startAnimation(fade_in);
 
         //ads
         MobileAds.initialize(this, initializationStatus -> {
@@ -132,20 +130,6 @@ public class HomeScreen extends AppCompatActivity {
         String appName = getString(R.string.app_name);
         greetingsToolbarView.setText(functional.setTextViewToolbar(stringGreeting, appName));
     }
-
-    //after 5 click go to first easter egg class
-    //disable on PLAYSTORE version
-//    public void onClickAuthor(View view) {
-//        Toast.makeText(this, getString(R.string.remaining_click) + " " + (5 - count) + " click", Toast.LENGTH_SHORT).show();
-//
-//        if (count == 5) {
-//            Intent intent = new Intent(getApplicationContext(), FirstQuizEasterEgg.class);
-//            startActivity(intent);
-//            count = 0;
-//        }
-//
-//        count++;
-//    }
 
     public void onClickOperations(View view) {
         functional.setOperations();

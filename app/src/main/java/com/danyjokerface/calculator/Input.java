@@ -7,6 +7,7 @@ import java.util.Locale;
 import static java.lang.Double.parseDouble;
 
 public class Input extends HomeScreen {
+    private static int count = 0;
     private static String stringNumberInsert = "";
     private static Double numberCommaInsert = 0.0;
     private static String stringToInsertOperations = "";
@@ -167,6 +168,20 @@ public class Input extends HomeScreen {
     // ------------------------Equal--------------------------------------------------------------------------------------------------------
 
     public String equal(String remainderInsert) {
+
+        //Easter Egg
+        if (stringNumberInsert.equals("03051990")) {
+            count++;
+            if (count == 3) {
+                count = 0;
+                stringNumberInsert = "";
+                buildStringToValue = new StringBuilder();
+                return "surprise";
+            }
+
+            return stringNumberInsert;
+        }
+
         if (resultTemp != 0.0) {
             if (remainder == 0.0) {
                 result = resultTemp;
