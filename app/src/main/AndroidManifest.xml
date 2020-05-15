@@ -15,14 +15,14 @@
             android:theme="@style/AppThemeDayNightNoActionBar"
             tools:ignore="AllowBackup">
 
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-9470422104309293~3044545403" />
+
         <activity
                 android:name="com.google.android.gms.ads.AdActivity"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
                 android:theme="@android:style/Theme.Translucent" />
-
-        <meta-data
-                android:name="com.google.android.gms.ads.APPLICATION_ID"
-                android:value="ca-app-pub-9470422104309293~3044545403" />
 
         <receiver android:name=".CalculatorWidget">
             <intent-filter>

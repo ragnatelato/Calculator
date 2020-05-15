@@ -25,6 +25,8 @@ public class HomeScreen extends AppCompatActivity {
     TextView operations;
     TextView greetingsToolbarView;
     Animation fade_in;
+    AdView adView;
+    AdRequest adRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +43,9 @@ public class HomeScreen extends AppCompatActivity {
         //ads
         MobileAds.initialize(this, initializationStatus -> {
         });
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        adView = findViewById(R.id.adView);
+        adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
-
     }
 
     // ------------------------Insert Number------------------------------------------------------------------------------------------------

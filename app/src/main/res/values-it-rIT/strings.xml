@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Calcolatrice</string>
     <string name="ic_input_delete">Can</string>
-    <string name="click_me">Click per aprire la Calcolatrice</string>
+    <string name="click_me">Apri la Calcolatrice</string>
     <string name="Remainder">Resto:</string>
     <string name="Greeting">Ciao da DanyJokerFace </string>
     <string name="surprise">Fantastico! hai sbloccato una sorpresa</string>
