@@ -169,7 +169,7 @@ public class Input extends HomeScreen {
 
     public String equal(String remainderInsert) {
 
-        //Easter Egg
+        //Easter Egg   //todo
         if (stringNumberInsert.equals("03051990")) {
             count++;
             if (count == 3) {

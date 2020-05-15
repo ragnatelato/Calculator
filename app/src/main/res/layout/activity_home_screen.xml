@@ -7,6 +7,13 @@
         android:layout_height="match_parent"
         tools:context=".HomeScreen">
 
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAdView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="90dp" />
+
     <Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -40,12 +47,11 @@
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
             android:onClick="onClickOperations"
-            android:textSize="55sp"
+            android:textSize="61sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-    <!--    app:layout_constraintTop_toBottomOf="@+id/author"-->
 
     <LinearLayout
             android:id="@+id/linearOperationRow"
@@ -58,20 +64,22 @@
 
         <Button
                 android:id="@+id/button_reset"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickReset"
                 android:text="C"
                 android:textSize="19sp" />
 
         <Button
                 android:id="@+id/button_ic_input_delete"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
                 android:textSize="19sp" />
@@ -82,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#34B2FF"
+                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickPercentage"
                 android:text="%"
                 android:textSize="19sp" />
@@ -93,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#34B2FF"
+                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDivision"
                 android:text="÷"
                 android:textSize="24sp" />
@@ -145,7 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#34B2FF"
+                android:backgroundTint="#E046B8FD"
                 android:onClick="onClickMultiplication"
                 android:text="X"
                 android:textSize="16sp" />
@@ -197,7 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#34B2FF"
+                android:backgroundTint="#E046B8FD"
                 android:onClick="onClickSubtraction"
                 android:text="-"
                 android:textSize="27sp" />
@@ -249,7 +257,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#34B2FF"
+                android:backgroundTint="#E046B8FD"
                 android:onClick="onClickSum"
                 android:text="+"
                 android:textSize="19sp" />
@@ -260,7 +268,7 @@
             android:id="@+id/linearLowerNumberRor"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/adView"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineAdView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
@@ -294,7 +302,7 @@
                 android:onClick="onClickComma"
                 android:paddingBottom="25dp"
                 android:text=","
-                android:textSize="28sp" />
+                android:textSize="23sp" />
 
         <Button
                 android:id="@+id/button_equal"
@@ -318,7 +326,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLowerNumberRor" />
+            app:layout_constraintTop_toBottomOf="@+id/guidelineAdView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
