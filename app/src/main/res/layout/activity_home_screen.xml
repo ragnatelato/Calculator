@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="serif"
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
@@ -35,11 +35,11 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
-            android:textSize="61sp"
+            android:textSize="21sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
                 android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickReset"
                 android:text="C"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_ic_input_delete"
@@ -74,7 +74,7 @@
                 android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_remainder"
@@ -85,7 +85,7 @@
                 android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickPercentage"
                 android:text="%"
-                android:textSize="19sp" />
+                android:textSize="13sp" />
 
         <Button
                 android:id="@+id/button_division"
@@ -96,7 +96,7 @@
                 android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDivision"
                 android:text="÷"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -117,7 +117,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickSeven"
                 android:text="7"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_eight"
@@ -127,7 +127,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickEight"
                 android:text="8"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_nine"
@@ -137,7 +137,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickNine"
                 android:text="9"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_multi"
@@ -148,7 +148,7 @@
                 android:backgroundTint="#E046B8FD"
                 android:onClick="onClickMultiplication"
                 android:text="X"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -169,7 +169,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickFour"
                 android:text="4"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_five"
@@ -179,7 +179,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickFive"
                 android:text="5"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_six"
@@ -189,7 +189,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickSix"
                 android:text="6"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_sub"
@@ -200,7 +200,7 @@
                 android:backgroundTint="#E046B8FD"
                 android:onClick="onClickSubtraction"
                 android:text="-"
-                android:textSize="27sp" />
+                android:textSize="19sp" />
 
     </LinearLayout>
 
@@ -221,7 +221,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickOne"
                 android:text="1"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_two"
@@ -231,7 +231,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickTwo"
                 android:text="2"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_three"
@@ -241,7 +241,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickThree"
                 android:text="3"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_sum"
@@ -252,7 +252,7 @@
                 android:backgroundTint="#E046B8FD"
                 android:onClick="onClickSum"
                 android:text="+"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -260,7 +260,7 @@
             android:id="@+id/linearLowerNumberRor"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineAdView"
+            app:layout_constraintBottom_toTopOf="@+id/spaceAppAds"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
@@ -273,7 +273,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickPosNeg"
                 android:text="+/-"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_zero"
@@ -283,7 +283,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickZero"
                 android:text="0"
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
         <Button
                 android:id="@+id/button_comma"
@@ -305,26 +305,37 @@
                 android:backgroundTint="#00E5FF"
                 android:onClick="onClickEqual"
                 android:text="="
-                android:textSize="19sp" />
+                android:textSize="15sp" />
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineAdView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="90dp" />
+    <androidx.legacy.widget.Space
+            android:id="@+id/spaceAppAds"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/adView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLowerNumberRor" />
 
     <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
-            app:adUnitId="@string/testIdBanner"
+            app:adUnitId="@string/myIdBanner"
+            app:layout_constraintBottom_toTopOf="@+id/spaceAppAdsBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spaceAppAds" />
+
+    <androidx.legacy.widget.Space
+            android:id="@+id/spaceAppAdsBottom"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineAdView" />
+            app:layout_constraintTop_toBottomOf="@+id/adView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

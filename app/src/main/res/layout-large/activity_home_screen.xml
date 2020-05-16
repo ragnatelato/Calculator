@@ -35,11 +35,11 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="150dp"
             android:layout_marginEnd="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
-            android:textSize="97sp"
+            android:textSize="67sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -260,7 +260,7 @@
             android:id="@+id/linearLowerNumberRor"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineAdView"
+            app:layout_constraintBottom_toTopOf="@+id/spaceAppAds"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
@@ -309,22 +309,33 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineAdView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="90dp" />
+    <androidx.legacy.widget.Space
+            android:id="@+id/spaceAppAds"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/adView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLowerNumberRor" />
 
     <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
-            app:adUnitId="@string/testIdBanner"
+            app:adUnitId="@string/myIdBanner"
+            app:layout_constraintBottom_toTopOf="@+id/spaceAppAdsBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spaceAppAds" />
+
+    <androidx.legacy.widget.Space
+            android:id="@+id/spaceAppAdsBottom"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineAdView" />
+            app:layout_constraintTop_toBottomOf="@+id/adView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
