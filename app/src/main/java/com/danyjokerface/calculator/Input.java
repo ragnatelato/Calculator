@@ -1,5 +1,8 @@
 package com.danyjokerface.calculator;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -8,21 +11,30 @@ import static java.lang.Double.parseDouble;
 
 public class Input extends HomeScreen {
     private static int count = 0;
+    @NonNull
     private static String stringNumberInsert = "";
     private static Double numberCommaInsert = 0.0;
+    @NonNull
     private static String stringToInsertOperations = "";
     private static Double previousValue = 0.0;
     private static Double value = 0.0;
+    @NonNull
     private static Double resultTemp = 0.0;
+    @NonNull
     private static Double result = 0.0;
+    @NonNull
     private static Double remainder = 0.0;
     private static char operator = 'n';
+    @NonNull
     DecimalFormatSymbols decimalFormat = new DecimalFormatSymbols(Locale.US);
+    @NonNull
     DecimalFormat numberOfDecimal = new DecimalFormat("#.##", decimalFormat);
+    @NonNull
     StringBuilder buildStringToValue = new StringBuilder();
 
     // ------------------------Insert Numbers-----------------------------------------------------------------------------------------------
 
+    @NonNull
     public String appendNumberForTextView(int number_to_insert) {
 
         //if have a comma
@@ -101,6 +113,7 @@ public class Input extends HomeScreen {
 
     // ------------------------Operators----------------------------------------------------------------------------------------------------
 
+    @Nullable
     public String insertOperator(char operator) {
 
         //first operator
@@ -167,6 +180,7 @@ public class Input extends HomeScreen {
 
     // ------------------------Equal--------------------------------------------------------------------------------------------------------
 
+    @Nullable
     public String equal(String remainderInsert) {
 
         //Easter Egg   //todo
@@ -248,6 +262,7 @@ public class Input extends HomeScreen {
         numberOfDecimal = new DecimalFormat("#.##", decimalFormat);
     }
 
+    @Nullable
     public String deleteSet() {
 
         // delete on a number
@@ -287,6 +302,7 @@ public class Input extends HomeScreen {
         return null;
     }
 
+    @Nullable
     public String posNegSet() {
         double posneg;
 
@@ -374,6 +390,7 @@ public class Input extends HomeScreen {
         return null;
     }
 
+    @Nullable
     public String commaSet() {
 
         //after number

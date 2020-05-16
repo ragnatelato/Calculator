@@ -121,19 +121,11 @@ public class HomeScreen extends AppCompatActivity {
 
     // ------------------------Functional---------------------------------------------------------------------------------------------------
 
-    public void onClickToolbar(View view) {
-        functional.setToolbar();
-    }
-
     //greetings joke
     public void onClickTextViewToolbar(View view) {
         String stringGreeting = getString(R.string.Greeting);
         String appName = getString(R.string.app_name);
         greetingsToolbarView.setText(functional.setTextViewToolbar(stringGreeting, appName));
-    }
-
-    public void onClickOperations(View view) {
-        functional.setOperations();
     }
 
     public void onClickReset(View view) {

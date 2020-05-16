@@ -3,9 +3,6 @@ package com.danyjokerface.calculator;
 public class Functional extends HomeScreen {
     static boolean checkclick = false;
 
-    public void setToolbar() {
-    }
-
     //greetings joke
     public String setTextViewToolbar(String greeting, String appname) {
         if (!checkclick) {
@@ -16,9 +13,6 @@ public class Functional extends HomeScreen {
             return (appname);
         }
 
-    }
-
-    public void setOperations() {
     }
 
 }

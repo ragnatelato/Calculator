@@ -7,19 +7,11 @@
         android:layout_height="match_parent"
         tools:context=".HomeScreen">
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineAdView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="90dp" />
-
     <Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="22dp"
+            android:layout_height="29dp"
             android:background="#146DD1"
-            android:onClick="onClickToolbar"
             app:layout_constraintBottom_toTopOf="@+id/operations"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:fontFamily="serif"
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
@@ -46,7 +39,6 @@
             android:layout_marginEnd="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
-            android:onClick="onClickOperations"
             android:textSize="61sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
@@ -317,21 +309,22 @@
 
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAdView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="90dp" />
+
     <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
-            app:adUnitId="ca-app-pub-9470422104309293/3802608203"
+            app:adUnitId="@string/testIdBanner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guidelineAdView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--mi ads id (DanyJokerFace)-->
-        <!--app:adUnitId="ca-app-pub-9470422104309293/3802608203"-->
-
-        <!--fake id-->
-        <!--app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
