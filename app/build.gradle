@@ -8,8 +8,8 @@ android {
         applicationId "com.danyjokerface.calculator"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1101
-        versionName "1.1.01"
+        versionCode 1111
+        versionName "1.1.11"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
