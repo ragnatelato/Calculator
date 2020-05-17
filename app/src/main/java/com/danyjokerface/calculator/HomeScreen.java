@@ -1,12 +1,15 @@
 package com.danyjokerface.calculator;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -23,6 +26,7 @@ public class HomeScreen extends AppCompatActivity {
     Functional functional;
     //Views
     TextView operations;
+    Toolbar toolbar;
     TextView greetingsToolbarView;
     Animation fade_in;
     AdView adView;
@@ -36,6 +40,8 @@ public class HomeScreen extends AppCompatActivity {
         input = new Input();
         functional = new Functional();
         operations = findViewById(R.id.operations);
+        toolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
         greetingsToolbarView = findViewById(R.id.textViewToolbar);
         fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         greetingsToolbarView.startAnimation(fade_in);
@@ -46,6 +52,15 @@ public class HomeScreen extends AppCompatActivity {
         adView = findViewById(R.id.adView);
         adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+    }
+
+    // ------------------------Resource-----------------------------------------------------------------------------------------------------
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_options, menu);
+        return true;
     }
 
     // ------------------------Insert Number------------------------------------------------------------------------------------------------

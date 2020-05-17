@@ -7,8 +7,8 @@
         android:layout_height="match_parent"
         tools:context=".HomeScreen">
 
-    <Toolbar
-            android:id="@+id/toolbar"
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/myToolbar"
             android:layout_width="match_parent"
             android:layout_height="29dp"
             android:background="#146DD1"
@@ -30,7 +30,7 @@
                 android:textSize="16sp"
                 android:textStyle="italic" />
 
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
             android:id="@+id/operations"
@@ -43,7 +43,7 @@
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
     <LinearLayout
             android:id="@+id/linearOperationRow"
@@ -260,7 +260,7 @@
             android:id="@+id/linearLowerNumberRor"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/spaceAppAds"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineAdsSpace"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
@@ -309,21 +309,28 @@
 
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAdsSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="112dp" />
+
     <androidx.legacy.widget.Space
             android:id="@+id/spaceAppAds"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/adView"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLowerNumberRor" />
+            app:layout_constraintTop_toBottomOf="@+id/guidelineAdsSpace" />
 
     <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
-            app:adUnitId="@string/myIdBanner"
+            app:adUnitId="@string/testIdBanner"
             app:layout_constraintBottom_toTopOf="@+id/spaceAppAdsBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -337,5 +344,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

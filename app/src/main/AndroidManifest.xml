@@ -16,7 +16,7 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/calculator_icon_round"
             android:supportsRtl="false"
-            android:theme="@style/AppThemeDayNightNoActionBar"
+            android:theme="@style/MyThemeNoActionBar"
             tools:ignore="AllowBackup">
 
         <meta-data
@@ -42,7 +42,7 @@
                 android:name=".HomeScreen"
                 android:label="@string/app_name"
                 android:screenOrientation="portrait"
-                android:theme="@style/AppThemeDayNightNoActionBar"
+                android:theme="@style/MyThemeNoActionBar"
                 tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
