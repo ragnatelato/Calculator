@@ -3,6 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="com.danyjokerface.calculator">
 
+    <!--todo    create layout for landscape and include this layout-->
     <supports-screens
             android:smallScreens="false"
             android:xlargeScreens="false" />
@@ -16,7 +17,7 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/calculator_icon_round"
             android:supportsRtl="false"
-            android:theme="@style/MyThemeNoActionBar"
+            android:theme="@style/AppTheme"
             tools:ignore="AllowBackup">
 
         <meta-data
@@ -38,11 +39,12 @@
                     android:resource="@xml/calculator_widget_info" />
         </receiver>
 
+        <!--todo                create layout land-->
         <activity
                 android:name=".HomeScreen"
                 android:label="@string/app_name"
                 android:screenOrientation="portrait"
-                android:theme="@style/MyThemeNoActionBar"
+                android:theme="@style/AppTheme"
                 tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

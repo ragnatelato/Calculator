@@ -5,6 +5,7 @@
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         tools:context=".HomeScreen">
 
     <androidx.appcompat.widget.Toolbar
@@ -37,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
             android:textSize="21sp"
@@ -60,10 +62,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickReset"
                 android:text="C"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:backgroundTint="#BE46B8FD" />
 
         <Button
                 android:id="@+id/button_ic_input_delete"
@@ -71,10 +73,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:backgroundTint="#BE46B8FD" />
 
         <Button
                 android:id="@+id/button_remainder"
@@ -82,10 +84,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickPercentage"
                 android:text="%"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                app:backgroundTint="#BE46B8FD" />
 
         <Button
                 android:id="@+id/button_division"
@@ -93,10 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDivision"
                 android:text="÷"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#BE46B8FD" />
 
     </LinearLayout>
 
@@ -145,10 +147,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#E046B8FD"
                 android:onClick="onClickMultiplication"
                 android:text="X"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
 
@@ -197,10 +199,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#E046B8FD"
                 android:onClick="onClickSubtraction"
                 android:text="-"
-                android:textSize="19sp" />
+                android:textSize="19sp"
+                app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
 
@@ -249,10 +251,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#E046B8FD"
                 android:onClick="onClickSum"
                 android:text="+"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
 
@@ -302,10 +304,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#00E5FF"
                 android:onClick="onClickEqual"
                 android:text="="
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:backgroundTint="#00E5FF" />
 
     </LinearLayout>
 
@@ -344,6 +346,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adView" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

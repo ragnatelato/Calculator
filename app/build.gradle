@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.danyjokerface.calculator"
-        minSdkVersion 23
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1201
         versionName "1.2.1"

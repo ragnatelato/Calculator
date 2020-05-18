@@ -12,6 +12,7 @@
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="27sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            android:gravity="center_horizontal" />
 
 </RelativeLayout>

@@ -43,7 +43,8 @@
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar"
+            android:layout_marginRight="10dp" />
 
     <LinearLayout
             android:id="@+id/linearOperationRow"
@@ -60,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
+                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickReset"
                 android:text="C"
                 android:textSize="19sp" />
@@ -71,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
+                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
                 android:textSize="19sp" />
@@ -82,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
+                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickPercentage"
                 android:text="%"
                 android:textSize="19sp" />
@@ -93,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#BE46B8FD"
+                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDivision"
                 android:text="÷"
                 android:textSize="24sp" />
@@ -145,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#E046B8FD"
+                app:backgroundTint="#E046B8FD"
                 android:onClick="onClickMultiplication"
                 android:text="X"
                 android:textSize="16sp" />
@@ -197,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#E046B8FD"
+                app:backgroundTint="#E046B8FD"
                 android:onClick="onClickSubtraction"
                 android:text="-"
                 android:textSize="27sp" />
@@ -249,7 +250,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#E046B8FD"
+                app:backgroundTint="#E046B8FD"
                 android:onClick="onClickSum"
                 android:text="+"
                 android:textSize="19sp" />
@@ -302,7 +303,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#00E5FF"
+                app:backgroundTint="#00E5FF"
                 android:onClick="onClickEqual"
                 android:text="="
                 android:textSize="19sp" />
