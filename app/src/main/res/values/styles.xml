@@ -5,4 +5,9 @@
         <item name="colorPrimaryDark">#146DD1</item>
     </style>
 
+    <style name="AppTheme.Button">
+        <item name="android:background">#783737</item>
+        <item name="shapeAppearance"></item>
+    </style>
+
 </resources>

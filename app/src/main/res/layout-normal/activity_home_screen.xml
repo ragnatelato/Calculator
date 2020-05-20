@@ -36,14 +36,14 @@
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
             android:textSize="50sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myToolbar"
-            android:layout_marginRight="10dp" />
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
     <LinearLayout
             android:id="@+id/linearOperationRow"
@@ -59,40 +59,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickReset"
                 android:text="C"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#BE46B8FD" />
 
         <Button
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#BE46B8FD" />
 
         <Button
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickPercentage"
                 android:text="%"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#BE46B8FD" />
 
         <Button
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#BE46B8FD"
                 android:onClick="onClickDivision"
                 android:text="÷"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                app:backgroundTint="#BE46B8FD" />
 
     </LinearLayout>
 
@@ -106,7 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearOperationRow">
 
         <Button
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/AppTheme.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -137,10 +137,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#E046B8FD"
                 android:onClick="onClickMultiplication"
                 android:text="X"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
 
@@ -185,10 +185,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#E046B8FD"
                 android:onClick="onClickSubtraction"
                 android:text="-"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
 
@@ -233,10 +233,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#E046B8FD"
                 android:onClick="onClickSum"
                 android:text="+"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
 
@@ -282,10 +282,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:backgroundTint="#00E5FF"
                 android:onClick="onClickEqual"
                 android:text="="
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:backgroundTint="#00E5FF" />
 
     </LinearLayout>
 
