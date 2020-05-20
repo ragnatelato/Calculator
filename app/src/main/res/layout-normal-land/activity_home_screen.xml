@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
@@ -57,7 +56,6 @@
             app:layout_constraintTop_toBottomOf="@+id/operations">
 
         <Button
-                android:id="@+id/button_reset"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -68,7 +66,6 @@
                 app:backgroundTint="#BE46B8FD" />
 
         <Button
-                android:id="@+id/button_ic_input_delete"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -79,7 +76,6 @@
                 app:backgroundTint="#BE46B8FD" />
 
         <Button
-                android:id="@+id/button_remainder"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -90,7 +86,6 @@
                 app:backgroundTint="#BE46B8FD" />
 
         <Button
-                android:id="@+id/button_division"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -112,7 +107,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearOperationRow">
 
         <Button
-                android:id="@+id/button_seven"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -122,7 +116,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_eight"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -132,7 +125,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_nine"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -142,7 +134,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_multi"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -164,7 +155,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearHighestNumberRow">
 
         <Button
-                android:id="@+id/button_four"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -174,7 +164,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_five"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -184,7 +173,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_six"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -194,7 +182,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_sub"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -216,7 +203,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearHighNumberRow">
 
         <Button
-                android:id="@+id/button_one"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -226,7 +212,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_two"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -236,7 +221,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_three"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -246,7 +230,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_sum"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -268,7 +251,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
 
         <Button
-                android:id="@+id/button_pos_neg"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -278,7 +260,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_zero"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -288,7 +269,6 @@
                 android:textSize="15sp" />
 
         <Button
-                android:id="@+id/button_comma"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -299,7 +279,6 @@
                 android:textSize="23sp" />
 
         <Button
-                android:id="@+id/button_equal"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
