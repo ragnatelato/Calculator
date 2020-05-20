@@ -5,12 +5,13 @@
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         tools:context=".HomeScreen">
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/myToolbar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="29dp"
             android:background="#146DD1"
             app:layout_constraintBottom_toTopOf="@+id/operations"
             app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +23,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="8dp"
                 android:fontFamily="serif"
                 android:onClick="onClickTextViewToolbar"
                 android:text="@string/app_name"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="italic" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -34,12 +36,12 @@
     <TextView
             android:id="@+id/operations"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:gravity="end|center_horizontal|center_vertical"
             android:maxLines="2"
-            android:textSize="67sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/linearOperationRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -49,7 +51,7 @@
     <LinearLayout
             android:id="@+id/linearOperationRow"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             app:layout_constraintBottom_toTopOf="@+id/linearHighestNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +65,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickReset"
                 android:text="C"
-                android:textSize="19sp"
+                android:textSize="12sp"
                 app:backgroundTint="#BE46B8FD" />
 
         <Button
@@ -74,7 +76,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickDelete"
                 android:text="@string/ic_input_delete"
-                android:textSize="19sp"
+                android:textSize="12sp"
                 app:backgroundTint="#BE46B8FD" />
 
         <Button
@@ -85,7 +87,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickPercentage"
                 android:text="%"
-                android:textSize="19sp"
+                android:textSize="13sp"
                 app:backgroundTint="#BE46B8FD" />
 
         <Button
@@ -96,7 +98,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickDivision"
                 android:text="÷"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 app:backgroundTint="#BE46B8FD" />
 
     </LinearLayout>
@@ -104,7 +106,7 @@
     <LinearLayout
             android:id="@+id/linearHighestNumberRow"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             app:layout_constraintBottom_toTopOf="@+id/linearHighNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +120,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickSeven"
                 android:text="7"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_eight"
@@ -128,7 +130,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickEight"
                 android:text="8"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_nine"
@@ -138,7 +140,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickNine"
                 android:text="9"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_multi"
@@ -148,7 +150,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickMultiplication"
                 android:text="X"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
@@ -156,7 +158,7 @@
     <LinearLayout
             android:id="@+id/linearHighNumberRow"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             app:layout_constraintBottom_toTopOf="@+id/linearMiddleNumberRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +172,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickFour"
                 android:text="4"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_five"
@@ -180,7 +182,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickFive"
                 android:text="5"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_six"
@@ -190,7 +192,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickSix"
                 android:text="6"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_sub"
@@ -200,7 +202,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickSubtraction"
                 android:text="-"
-                android:textSize="27sp"
+                android:textSize="19sp"
                 app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
@@ -208,7 +210,7 @@
     <LinearLayout
             android:id="@+id/linearMiddleNumberRow"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLowerNumberRor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -222,7 +224,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickOne"
                 android:text="1"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_two"
@@ -232,7 +234,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickTwo"
                 android:text="2"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_three"
@@ -242,7 +244,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickThree"
                 android:text="3"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_sum"
@@ -252,7 +254,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickSum"
                 android:text="+"
-                android:textSize="19sp"
+                android:textSize="12sp"
                 app:backgroundTint="#E046B8FD" />
 
     </LinearLayout>
@@ -260,8 +262,8 @@
     <LinearLayout
             android:id="@+id/linearLowerNumberRor"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineAdsSpace"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearMiddleNumberRow">
@@ -274,7 +276,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickPosNeg"
                 android:text="+/-"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_zero"
@@ -284,7 +286,7 @@
                 android:layout_weight="1"
                 android:onClick="onClickZero"
                 android:text="0"
-                android:textSize="19sp" />
+                android:textSize="12sp" />
 
         <Button
                 android:id="@+id/button_comma"
@@ -295,7 +297,7 @@
                 android:onClick="onClickComma"
                 android:paddingBottom="25dp"
                 android:text=","
-                android:textSize="28sp" />
+                android:textSize="10sp" />
 
         <Button
                 android:id="@+id/button_equal"
@@ -305,45 +307,30 @@
                 android:layout_weight="1"
                 android:onClick="onClickEqual"
                 android:text="="
-                android:textSize="19sp"
+                android:textSize="12sp"
                 app:backgroundTint="#00E5FF" />
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineAdsSpace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="150dp" />
-
-    <androidx.legacy.widget.Space
-            android:id="@+id/spaceAppAds"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/adView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineAdsSpace" />
-
     <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
             app:adSize="SMART_BANNER"
             app:adUnitId="@string/testIdBanner"
             app:layout_constraintBottom_toTopOf="@+id/spaceAppAdsBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spaceAppAds" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLowerNumberRor" />
 
     <androidx.legacy.widget.Space
             android:id="@+id/spaceAppAdsBottom"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

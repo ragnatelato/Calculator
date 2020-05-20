@@ -46,6 +46,8 @@ public class HomeScreen extends AppCompatActivity {
         fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         greetingsToolbarView.startAnimation(fade_in);
 
+        setToolbar();
+
         //ads
         MobileAds.initialize(this, initializationStatus -> {
         });
@@ -55,6 +57,10 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     // ------------------------Resource-----------------------------------------------------------------------------------------------------
+
+    public void setToolbar() {
+        setTitle("");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
