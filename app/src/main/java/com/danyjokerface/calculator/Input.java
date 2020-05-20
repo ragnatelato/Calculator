@@ -402,12 +402,16 @@ public class Input extends HomeScreen {
 
         //if insert comma after operator and no numbers
         if (operator != 'n' && stringNumberInsert.equals("")) {
-            return stringToInsertOperations;
+            return stringToInsertOperations.replace(".", ",");
         }
 
         //if comma exist
-        if (stringNumberInsert.contains(".")) {
+        if (stringNumberInsert.contains(".") && resultTemp == 0.0) {
             return stringNumberInsert.replace(".", ",");
+        }
+        //if comma exist and i have a operation
+        if (stringNumberInsert.contains(".") && resultTemp != 0.0) {
+            return stringToInsertOperations.replace(".", ",") + stringNumberInsert.replace(".", ",");
         }
 
         //if insert comma after equals
